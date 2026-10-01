@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Familia CBD</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#07110d;
+color:white;
+}
+
+header{
+padding:22px 18px;
+background:#07110d;
+position:sticky;
+top:0;
+z-index:10;
+border-bottom:1px solid #20362a;
+}
+
+.logo{
+font-size:24px;
+font-weight:900;
+}
+
+.logo span{
+color:#39e56f;
+}
+
+.hero{
+margin:16px;
+padding:22px;
+border-radius:22px;
+background:#10251a;
+border:1px solid #244431;
+}
+
+.hero small{
+color:#39e56f;
+font-weight:800;
+}
+
+.hero h1{
+margin:7px 0;
+font-size:30px;
+}
+
+.hero p{
+margin:0;
+color:#aab9b0;
+}
+
+.categories{
+display:flex;
+gap:8px;
+overflow:auto;
+padding:0 16px 15px;
+}
+
+.categories button{
+border:1px solid #294334;
+background:#0d1913;
+color:white;
+padding:10px 16px;
+border-radius:30px;
+white-space:nowrap;
+}
+
+.categories button.active{
+background:#39e56f;
+color:#061009;
+}
+
+section{
+padding:0 16px 18px;
+}
+
+section h2{
+font-size:22px;
+}
+
+.products{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.card{
+background:#0e1d15;
+border:1px solid #243b2e;
+border-radius:18px;
+overflow:hidden;
+}
+
+.photo{
+height:125px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:48px;
+background:#162b1e;
+}
+
+.info{
+padding:12px;
+}
+
+.name{
+font-weight:900;
+font-size:17px;
+}
+
+.available{
+color:#39e56f;
+font-size:12px;
+font-weight:800;
+margin:6px 0;
+}
+
+.price{
+font-weight:900;
+font-size:16px;
+}
+
+.add{
+width:100%;
+border:0;
+border-radius:11px;
+padding:11px;
+margin-top:10px;
+background:#39e56f;
+font-weight:900;
+}
+
+.cart-button{
+position:fixed;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+width:calc(100% - 28px);
+max-width:590px;
+border:0;
+border-radius:16px;
+padding:16px;
+background:#25d366;
+font-weight:900;
+font-size:16px;
+z-index:20;
+}
+
+.overlay{
+display:none;
+position:fixed;
+inset:0;
+background:#000b;
+z-index:30;
+align-items:flex-end;
+}
+
+.overlay.show{
+display:flex;
+}
+
+.cart{
+width:100%;
+max-width:620px;
+margin:auto;
+background:#0b1711;
+border-radius:25px 25px 0 0;
+padding:20px;
+max-height:80vh;
+overflow:auto;
+}
+
+.close{
+float:right;
+border:0;
+background:#1b2b22;
+color:white;
+border-radius:50%;
+padding:8px 11px;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+gap:10px;
+padding:14px 0;
+border-bottom:1px solid #23382b;
+}
+
+.qty button{
+background:#182a20;
+color:white;
+border:1px solid #304839;
+border-radius:8px;
+padding:5px 10px;
+}
+
+.whatsapp{
+width:100%;
+border:0;
+border-radius:13px;
+padding:15px;
+margin-top:15px;
+background:#25d366;
+font-weight:900;
+font-size:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">LA FAMILIA <span>CBD</span></div>
+</header>
+
+<div class="hero">
+<small>CATÁLOGO DIGITAL</small>
+<h1>Elige tus variedades</h1>
+<p>Productos disponibles de La Familia CBD.</p>
+</div>
+
+<div class="categories" id="categories"></div>
+
+<main id="products"></main>
+
+<button class="cart-button" onclick="openCart()">
+🛒 Ver pedido (<span id="count">0</span>)
+</button>
+
+<div class="overlay" id="overlay">
+<div class="cart">
+
+<button class="close" onclick="closeCart()">✕</button>
+
+<h2>Tu pedido</h2>
+
+<div id="cartItems"></div>
+
+<button class="whatsapp" onclick="sendWhatsApp()">
+💬 PEDIR AHORA POR WHATSAPP
+</button>
+
+</div>
+</div>
+
+<script>
+
+const WHATSAPP = "34600000000";
+
+const products = [
+
+{
+category:"Flores",
+name:"Mango",
+emoji:"🥭",
+price:8.90
+},
+
+{
+category:"Flores",
+name:"Canatonic",
+emoji:"🌿",
+price:8.90
+},
+
+{
+category:"Flores",
+name:"Guavalato",
+emoji:"🍈",
+price:8.90
+},
+
+{
+category:"Resinas",
+name:"Ketama",
+emoji:"🟤",
+price:7.90
+},
+
+{
+category:"Resinas",
+name:"Lemon",
+emoji:"🍋",
+price:7.90
+},
+
+{
+category:"Resinas",
+name:"Melon Kush",
+emoji:"🍈",
+price:7.90
+},
+
+{
+category:"Vapers",
+name:"Lemon Haze",
+emoji:"🍋",
+price:12.90
+},
+
+{
+category:"Vapers",
+name:"Strawberry",
+emoji:"🍓",
+price:12.90
+},
+
+{
+category:"Vapers",
+name:"Mango",
+emoji:"🥭",
+price:12.90
+}
+
+];
+
+let selectedCategory="Todos";
+let cart=[];
+
+function money(number){
+
+return number.toLocaleString("es-ES",{
+style:"currency",
+currency:"EUR"
+});
+
+}
+
+function renderCategories(){
+
+const categories=[
+"Todos",
+"Flores",
+"Resinas",
+"Vapers"
+];
+
+document.getElementById("categories").innerHTML=
+categories.map(category=>`
+
+<button
+class="${selectedCategory===category?"active":""}"
+onclick="selectCategory('${category}')">
+
+${category}
+
+</button>
+
+`).join("");
+
+}
+
+function selectCategory(category){
+
+selectedCategory=category;
+
+renderCategories();
+renderProducts();
+
+}
+
+function renderProducts(){
+
+const filtered=
+selectedCategory==="Todos"
+?products
+:products.filter(p=>p.category===selectedCategory);
+
+const groups=[
+...new Set(filtered.map(p=>p.category))
+];
+
+document.getElementById("products").innerHTML=
+
+groups.map(category=>`
+
+<section>
+
+<h2>${category}</h2>
+
+<div class="products">
+
+${filtered
+.filter(p=>p.category===category)
+.map((p,index)=>`
+
+<div class="card">
+
+<div class="photo">
+${p.emoji}
+</div>
+
+<div class="info">
+
+<div class="name">
+${p.name}
+</div>
+
+<div class="available">
+● Disponible
+</div>
+
+<div class="price">
+${money(p.price)}
+</div>
+
+<button
+class="add"
+onclick="addToCart('${p.category}','${p.name}',${p.price})">
+
+Añadir al pedido
+
+</button>
+
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</section>
+
+`).join("");
+
+}
+
+function addToCart(category,name,price){
+
+const existing=
+cart.find(item=>
+item.name===name &&
+item.category===category
+);
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+category,
+name,
+price,
+quantity:1
+});
+
+}
+
+updateCount();
+openCart();
+
+}
+
+function updateCount(){
+
+document.getElementById("count").textContent=
+cart.reduce((total,item)=>total+item.quantity,0);
+
+}
+
+function openCart(){
+
+renderCart();
+
+document.getElementById("overlay")
+.classList.add("show");
+
+}
+
+function closeCart(){
+
+document.getElementById("overlay")
+.classList.remove("show");
+
+}
+
+function renderCart(){
+
+const container=
+document.getElementById("cartItems");
+
+if(cart.length===0){
+
+container.innerHTML=
+"<p style='color:#9eafa5'>Tu pedido está vacío.</p>";
+
+return;
+
+}
+
+container.innerHTML=
+
+cart.map((item,index)=>`
+
+<div class="item">
+
+<div>
+
+<strong>${item.name}</strong>
+
+<div style="color:#9eafa5;font-size:13px">
+${item.category}
+</div>
+
+<div class="qty">
+
+<button onclick="changeQuantity(${index},-1)">
+−
+</button>
+
+${item.quantity}
+
+<button onclick="changeQuantity(${index},1)">
++
+</button>
+
+</div>
+
+</div>
+
+<strong>
+${money(item.price*item.quantity)}
+</strong>
+
+</div>
+
+`).join("");
+
+}
+
+function changeQuantity(index,change){
+
+cart[index].quantity+=change;
+
+if(cart[index].quantity<=0){
+
+cart.splice(index,1);
+
+}
+
+updateCount();
+renderCart();
+
+}
+
+function sendWhatsApp(){
+
+if(cart.length===0){
+
+alert("Tu pedido está vacío.");
+
+return;
+
+}
+
+let message=
+"Hola, quiero hacer un pedido:%0A%0A";
+
+cart.forEach(item=>{
+
+message+=
+"• "+
+item.name+
+" ("+
+item.category+
+") × "+
+item.quantity+
+"%0A";
+
+});
+
+message+=
+"%0AGracias 🙏";
+
+window.location.href=
+"https://wa.me/"+
+WHATSAPP+
+"?text="+
+message;
+
+}
+
+renderCategories();
+renderProducts();
+updateCount();
+
+</script>
+
+</body>
+</html>

@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07100b">
 
 <title>La Familia CBD · Catálogo</title>
 
@@ -12,374 +13,1234 @@
 }
 
 :root{
-  --fondo:#06100b;
-  --tarjeta:#0d1c13;
-  --tarjeta2:#12251a;
-  --verde:#39e56f;
-  --verde2:#20c95a;
-  --texto:#ffffff;
-  --gris:#9aaa9f;
-  --borde:#24412f;
+  --verde:#19d69a;
+  --verde2:#0fae7c;
+  --negro:#070b09;
+  --blanco:#ffffff;
+  --gris:#68706c;
+  --linea:#dfe4e1;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
-  background:
-    radial-gradient(circle at 50% -10%, #1a4228 0%, #06100b 42%);
-  color:var(--texto);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  padding-bottom:100px;
+  background:#f5f6f5;
+  color:#111;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* CABECERA */
+button{
+  font:inherit;
+  cursor:pointer;
+}
 
-header{
+
+/* =========================
+   CABECERA
+========================= */
+
+.top{
   position:sticky;
   top:0;
-  z-index:20;
-  padding:17px 18px;
-  background:rgba(6,16,11,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--borde);
-}
+  z-index:30;
 
-.logo{
-  font-size:23px;
-  font-weight:900;
-  letter-spacing:.3px;
-}
-
-.logo span{
-  color:var(--verde);
-}
-
-/* PRESENTACIÓN */
-
-.hero{
-  margin:18px 16px 22px;
-  padding:26px 21px;
-  border-radius:25px;
-  background:
-    linear-gradient(145deg,#153622,#0a1710);
-  border:1px solid #285238;
-  box-shadow:0 15px 40px rgba(0,0,0,.35);
-}
-
-.hero small{
-  color:var(--verde);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1.7px;
-}
-
-.hero h1{
-  margin:8px 0 7px;
-  font-size:32px;
-  line-height:1.05;
-}
-
-.hero p{
-  margin:0;
-  color:var(--gris);
-  font-size:14px;
-  line-height:1.5;
-}
-
-/* FILTROS */
-
-.categories{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  padding:0 16px 20px;
-  scrollbar-width:none;
-}
-
-.categories::-webkit-scrollbar{
-  display:none;
-}
-
-.categories button{
-  flex:none;
-  border:1px solid var(--borde);
-  background:#0c1811;
+  background:rgba(7,11,9,.97);
   color:white;
-  padding:10px 16px;
-  border-radius:30px;
-  font-weight:800;
-  font-size:13px;
-}
 
-.categories button.active{
-  background:var(--verde);
-  color:#061009;
-  border-color:var(--verde);
-}
+  border-bottom:1px solid #27332d;
 
-/* SECCIONES */
+  padding:10px 14px;
 
-section{
-  padding:0 16px 28px;
-}
-
-.section-title{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  margin-bottom:13px;
-}
-
-.section-title h2{
-  margin:0;
-  font-size:21px;
-}
-
-.section-title span{
-  color:var(--gris);
-  font-size:12px;
-}
-
-/* PRODUCTOS */
-
-.products{
-  display:grid;
-  grid-template-columns:1fr 1fr;
   gap:12px;
 }
 
-.card{
-  overflow:hidden;
-  border-radius:19px;
+.icon{
+  width:42px;
+  height:42px;
+
+  border:0;
+  background:transparent;
+
+  color:white;
+
+  display:grid;
+  place-items:center;
+
+  font-size:25px;
+}
+
+.logo{
+  width:78px;
+  height:62px;
+
+  margin:auto;
+}
+
+.actions{
+  display:flex;
+  gap:2px;
+}
+
+.cartTop{
+  position:relative;
+}
+
+.badge{
+  position:absolute;
+
+  right:0;
+  top:0;
+
+  min-width:19px;
+  height:19px;
+
+  padding:0 5px;
+
+  border-radius:20px;
+
+  background:var(--verde);
+
+  color:#03110b;
+
+  font-size:11px;
+  font-weight:900;
+
+  display:grid;
+  place-items:center;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:510px;
+
   background:
-    linear-gradient(160deg,#122319,#0b1710);
-  border:1px solid var(--borde);
-  box-shadow:0 9px 25px rgba(0,0,0,.28);
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.12),
+      rgba(0,0,0,.82)
+    ),
+    radial-gradient(
+      circle at 75% 35%,
+      #155f46 0,
+      #07110c 48%,
+      #020504 100%
+    );
+
+  color:white;
+
+  position:relative;
+  overflow:hidden;
+
+  padding:65px 24px 38px;
+
+  display:flex;
+  align-items:flex-end;
+}
+
+.hero:before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    repeating-linear-gradient(
+      125deg,
+      transparent 0 35px,
+      rgba(25,214,154,.035) 36px 37px
+    );
+}
+
+.heroContent{
+  position:relative;
+  z-index:2;
+}
+
+.kicker{
+  font-size:10px;
+  letter-spacing:4px;
+
+  font-weight:800;
+
+  color:#b9c4be;
+
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:52px;
+  line-height:.86;
+
+  margin:0 0 18px;
+
+  font-weight:1000;
+
+  letter-spacing:-3px;
+}
+
+.hero h1 span{
+  display:block;
+
+  color:var(--verde);
+
+  font-style:italic;
+}
+
+.hero p{
+  font-size:13px;
+
+  line-height:1.5;
+
+  color:#dce2df;
+
+  max-width:330px;
+
+  margin:0 0 25px;
+}
+
+.cta{
+  border:0;
+
+  background:var(--verde);
+
+  color:#02110b;
+
+  border-radius:3px;
+
+  padding:14px 21px;
+
+  font-size:12px;
+
+  font-weight:1000;
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.wrap{
+  max-width:1100px;
+
+  margin:auto;
+
+  padding:26px 16px 110px;
+}
+
+.sectionHead{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:end;
+
+  margin:8px 0 15px;
+}
+
+.sectionHead h2{
+  font-size:30px;
+  line-height:1;
+
+  margin:0;
+
+  font-weight:1000;
+
+  letter-spacing:-1px;
+}
+
+.link{
+  border:0;
+
+  background:none;
+
+  color:var(--verde2);
+
+  font-weight:900;
+
+  font-size:12px;
+}
+
+
+/* =========================
+   CATEGORÍAS
+========================= */
+
+.categories{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:8px;
+
+  margin-bottom:35px;
+}
+
+.cat{
+  border:1px solid #cfd7d3;
+
+  background:white;
+
+  padding:0;
+
+  border-radius:4px;
+
+  overflow:hidden;
+
+  text-align:left;
+}
+
+.catImg{
+  height:92px;
+
+  background:#111;
+}
+
+.catImg img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.88;
+}
+
+.catName{
+  font-size:11px;
+
+  font-weight:1000;
+
+  padding:10px 9px;
+}
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:14px;
+}
+
+.card{
+  background:white;
+
+  border:1px solid var(--linea);
+
+  border-radius:5px;
+
+  overflow:hidden;
+
+  transition:
+    transform .2s;
+}
+
+.card:active{
+  transform:scale(.985);
 }
 
 .photo{
-  height:185px;
-  padding:10px;
-  background:#eeeeeb;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  aspect-ratio:1/1;
+
+  background:#101412;
+
+  overflow:hidden;
 }
 
 .photo img{
   width:100%;
   height:100%;
-  object-fit:contain;
+
+  object-fit:cover;
+
   display:block;
 }
 
 .info{
-  padding:12px;
+  padding:11px 10px 12px;
 }
 
 .name{
-  font-size:15px;
-  font-weight:900;
-  line-height:1.2;
+  font-weight:1000;
+
+  font-size:14px;
+
+  line-height:1.1;
+
+  min-height:32px;
 }
 
 .available{
-  margin-top:7px;
-  color:var(--verde);
-  font-size:11px;
-  font-weight:900;
+  font-size:10px;
+
+  color:#16936e;
+
+  margin:6px 0 9px;
+
+  font-weight:800;
+}
+
+.priceRow{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+.price{
+  font-size:16px;
+
+  font-weight:1000;
 }
 
 .add{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
   border:0;
-  border-radius:11px;
+
   background:var(--verde);
-  color:#061009;
-  font-weight:900;
-  font-size:12px;
+
+  color:#04130d;
+
+  font-weight:1000;
+
+  font-size:10px;
+
+  padding:10px 12px;
+
+  border-radius:3px;
 }
 
-/* BOTÓN PEDIDO */
+.empty{
+  grid-column:1/-1;
 
-.cart-button{
+  border:1px dashed #bfc9c4;
+
+  padding:30px;
+
+  text-align:center;
+
+  color:#6d7772;
+}
+
+
+/* =========================
+   CARRITO FLOTANTE
+========================= */
+
+.floating{
   position:fixed;
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
-  width:calc(100% - 28px);
-  max-width:590px;
-  padding:16px;
+
+  right:18px;
+  bottom:20px;
+
+  z-index:35;
+
+  width:60px;
+  height:60px;
+
   border:0;
-  border-radius:17px;
-  background:#25d366;
-  color:#061009;
-  font-size:16px;
-  font-weight:950;
-  z-index:30;
-  box-shadow:0 8px 30px rgba(0,0,0,.55);
+
+  border-radius:50%;
+
+  background:var(--verde);
+
+  color:#04130d;
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.3);
+
+  font-size:24px;
 }
 
-/* CARRITO */
+.floating .badge{
+  right:0;
+  top:-2px;
+}
+
+
+/* =========================
+   MODALES
+========================= */
 
 .overlay{
-  display:none;
   position:fixed;
+
   inset:0;
-  z-index:50;
-  background:rgba(0,0,0,.72);
-  align-items:flex-end;
+
+  background:rgba(0,0,0,.62);
+
+  z-index:60;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:opacity .22s;
 }
 
 .overlay.show{
-  display:flex;
+  opacity:1;
+
+  pointer-events:auto;
 }
 
-.cart{
-  width:100%;
-  max-width:620px;
-  margin:auto;
-  max-height:82vh;
+.modal,
+.cartPanel{
+  position:absolute;
+
+  left:50%;
+  bottom:0;
+
+  transform:
+    translate(-50%,100%);
+
+  width:min(560px,100%);
+
+  max-height:90vh;
+
   overflow:auto;
-  padding:20px;
-  background:#0b1711;
-  border-radius:25px 25px 0 0;
+
+  background:white;
+
+  border-radius:
+    18px 18px 0 0;
+
+  transition:
+    transform .28s
+    cubic-bezier(.2,.8,.2,1);
+
+  padding-bottom:18px;
+}
+
+.overlay.show .modal{
+  transform:
+    translate(-50%,0);
+}
+
+.overlay.cartMode .modal{
+  transform:
+    translate(-50%,100%);
+}
+
+.overlay.cartMode .cartPanel{
+  transform:
+    translate(-50%,0);
+}
+
+
+/* =========================
+   PRODUCTO
+========================= */
+
+.modalImg{
+  width:100%;
+
+  aspect-ratio:1.25;
+
+  background:#111;
+
+  object-fit:cover;
+}
+
+.modalBody{
+  padding:18px;
 }
 
 .close{
-  float:right;
+  position:absolute;
+
+  right:16px;
+  top:15px;
+
+  width:38px;
+  height:38px;
+
   border:0;
-  background:#1b2b22;
-  color:white;
+
   border-radius:50%;
-  padding:8px 11px;
+
+  background:rgba(0,0,0,.75);
+
+  color:white;
+
+  font-size:22px;
 }
 
-.cart h2{
-  margin-top:5px;
+.modal h3{
+  font-size:25px;
+
+  margin:0 0 7px;
 }
 
-.item{
+.stock{
+  color:#15936d;
+
+  font-size:12px;
+
+  font-weight:800;
+}
+
+.modalPrice{
+  font-size:24px;
+
+  font-weight:1000;
+
+  margin:12px 0 18px;
+}
+
+.qtyBox{
   display:flex;
-  justify-content:space-between;
-  gap:10px;
-  padding:14px 0;
-  border-bottom:1px solid #23382b;
+
+  align-items:center;
+
+  border:1px solid #cfd7d3;
+
+  width:max-content;
+
+  border-radius:5px;
+
+  overflow:hidden;
+
+  margin-bottom:14px;
 }
 
-.item-name{
+.qtyBox button{
+  width:46px;
+  height:42px;
+
+  border:0;
+
+  background:#f1f3f2;
+
+  font-size:20px;
+}
+
+.qtyNum{
+  width:52px;
+
+  text-align:center;
+
+  font-weight:1000;
+}
+
+.confirm{
+  width:100%;
+
+  border:0;
+
+  background:var(--verde);
+
+  padding:15px;
+
+  border-radius:4px;
+
+  font-weight:1000;
+}
+
+
+/* =========================
+   CARRITO
+========================= */
+
+.cartPanel{
+  padding:20px 16px;
+}
+
+.cartTitle{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+.cartTitle h3{
+  font-size:26px;
+
+  margin:0;
+}
+
+.x{
+  border:0;
+
+  background:none;
+
+  font-size:25px;
+}
+
+.cartLine{
+  display:grid;
+
+  grid-template-columns:
+    58px 1fr auto;
+
+  gap:10px;
+
+  align-items:center;
+
+  border-bottom:
+    1px solid #e2e6e4;
+
+  padding:12px 0;
+}
+
+.cartLine img{
+  width:58px;
+  height:58px;
+
+  object-fit:cover;
+
+  border-radius:4px;
+
+  background:#111;
+}
+
+.lineName{
+  font-size:13px;
+
   font-weight:900;
 }
 
-.item-category{
-  color:var(--gris);
-  font-size:12px;
+.lineCat{
+  font-size:10px;
+
+  color:#76807b;
+
   margin-top:3px;
 }
 
-.qty{
-  margin-top:9px;
+.miniQty{
+  display:flex;
+
+  border:1px solid #d5dbd8;
+
+  border-radius:4px;
+
+  overflow:hidden;
 }
 
-.qty button{
-  background:#182a20;
-  color:white;
-  border:1px solid #304839;
-  border-radius:8px;
-  padding:5px 11px;
-}
-
-.whatsapp{
-  width:100%;
-  margin-top:16px;
-  padding:15px;
+.miniQty button{
   border:0;
-  border-radius:13px;
-  background:#25d366;
-  color:#061009;
-  font-size:15px;
+
+  background:#f1f3f2;
+
+  width:27px;
+  height:29px;
+}
+
+.miniQty span{
+  width:28px;
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:11px;
+
   font-weight:900;
 }
 
-/* TABLET / PC */
+.total{
+  display:flex;
+
+  justify-content:space-between;
+
+  font-size:21px;
+
+  font-weight:1000;
+
+  margin:20px 0;
+}
+
+.wa{
+  width:100%;
+
+  border:0;
+
+  background:#111;
+
+  color:white;
+
+  padding:16px;
+
+  border-radius:4px;
+
+  font-weight:1000;
+}
+
+.note{
+  text-align:center;
+
+  font-size:10px;
+
+  color:#737b77;
+
+  margin-top:8px;
+}
+
+
+/* =========================
+   ANIMACIÓN CARRITO
+========================= */
+
+.fly{
+  position:fixed;
+
+  z-index:100;
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  background:var(--verde);
+
+  pointer-events:none;
+
+  animation:
+    fly .55s ease-in forwards;
+}
+
+@keyframes fly{
+
+  to{
+    transform:
+      translate(
+        calc(50vw - 40px),
+        calc(-50vh + 30px)
+      )
+      scale(.15);
+
+    opacity:.2;
+  }
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
 
 @media(min-width:700px){
 
-  .products{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .photo{
-    height:240px;
-  }
-
   .hero{
-    max-width:900px;
-    margin-left:auto;
-    margin-right:auto;
+    min-height:600px;
+
+    padding-left:8vw;
   }
 
-  section{
-    max-width:1100px;
-    margin:auto;
+  .hero h1{
+    font-size:76px;
   }
+
+  .wrap{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .grid{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .modal,
+  .cartPanel{
+    bottom:18px;
+
+    border-radius:18px;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="logo">
-    LA FAMILIA <span>CBD</span>
-  </div>
-</header>
 
-<div class="hero">
-  <small>CATÁLOGO DIGITAL</small>
+<!-- =========================
+     CABECERA
+========================= -->
 
-  <h1>Parafernalia</h1>
+<header class="top">
 
-  <p>
-    Descubre nuestra selección de accesorios.
-    Elige tus productos y prepara tu pedido por WhatsApp.
-  </p>
-</div>
-
-<div class="categories" id="categories"></div>
-
-<main id="products"></main>
-
-<button class="cart-button" onclick="openCart()">
-  🛒 Ver pedido (<span id="count">0</span>)
+<button
+  class="icon"
+  aria-label="Menú"
+  onclick="
+    document
+      .getElementById('cats')
+      .scrollIntoView({
+        behavior:'smooth'
+      })
+  "
+>
+☰
 </button>
 
-<div class="overlay" id="overlay">
 
-  <div class="cart">
+<!-- LOGO -->
 
-    <button class="close" onclick="closeCart()">✕</button>
+<svg
+  class="logo"
+  viewBox="0 0 160 160"
+  aria-label="La Familia CBD"
+>
 
-    <h2>Tu pedido</h2>
+  <polygon
+    points="80,4 151,42 151,118 80,156 9,118 9,42"
+    fill="#19d69a"
+  />
 
-    <div id="cartItems"></div>
+  <polygon
+    points="80,12 143,46 143,114 80,148 17,114 17,46"
+    fill="#07100b"
+  />
 
-    <button class="whatsapp" onclick="sendWhatsApp()">
-      💬 PEDIR AHORA POR WHATSAPP
-    </button>
+  <path
+    d="
+    M80 86
+    C61 64 57 43 66 28
+    C76 40 80 58 80 86
+    C80 58 84 40 94 28
+    C103 43 99 64 80 86
+    C57 69 38 65 27 75
+    C39 88 58 91 80 86
+    C102 91 121 88 133 75
+    C122 65 103 69 80 86
+    "
+    fill="#19d69a"
+  />
 
-  </div>
+  <text
+    x="80"
+    y="111"
+    text-anchor="middle"
+    fill="#fff"
+    font-size="14"
+    font-weight="900"
+    font-family="Arial"
+  >
+    LA FAMILIA
+  </text>
+
+  <text
+    x="80"
+    y="134"
+    text-anchor="middle"
+    fill="#19d69a"
+    font-size="18"
+    font-weight="900"
+    font-family="Arial"
+  >
+    CBD
+  </text>
+
+</svg>
+
+
+<div class="actions">
+
+<button
+  class="icon"
+  aria-label="Buscar"
+  onclick="
+    alert('La búsqueda la añadimos después 🔎')
+  "
+>
+⌕
+</button>
+
+
+<button
+  class="icon cartTop"
+  aria-label="Carrito"
+  onclick="openCart()"
+>
+🛒
+
+<span
+  class="badge"
+  id="topCount"
+>
+0
+</span>
+
+</button>
 
 </div>
 
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="heroContent">
+
+<div class="kicker">
+CALIDAD · SELECCIÓN · ESTILO
+</div>
+
+
+<h1>
+LA FAMILIA
+<span>CBD</span>
+</h1>
+
+
+<p>
+PRODUCTOS · PARAFERNALIA · ESENCIAS · Y MÁS
+</p>
+
+
+<button
+  class="cta"
+  onclick="
+    document
+      .getElementById('cats')
+      .scrollIntoView({
+        behavior:'smooth'
+      })
+  "
+>
+VER CATÁLOGO →
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTENIDO
+========================= -->
+
+<main class="wrap">
+
+
+<!-- CATEGORÍAS -->
+
+<section id="cats">
+
+<div class="sectionHead">
+
+<h2>
+CATEGORÍAS
+</h2>
+
+</div>
+
+
+<div class="categories">
+
+
+<button
+  class="cat"
+  onclick="filterCat('Bandejas')"
+>
+
+<div class="catImg">
+
+<img
+  src="IMG_5663.jpeg"
+  alt=""
+>
+
+</div>
+
+<div class="catName">
+BANDEJAS
+</div>
+
+</button>
+
+
+
+<button
+  class="cat"
+  onclick="filterCat('Cremas')"
+>
+
+<div class="catImg">
+
+<img
+  src="IMG_5662.jpeg"
+  alt=""
+>
+
+</div>
+
+<div class="catName">
+CREMAS
+</div>
+
+</button>
+
+
+
+<button
+  class="cat"
+  onclick="filterCat('Parafernalia')"
+>
+
+<div class="catImg">
+
+<img
+  src="IMG_5661.jpeg"
+  alt=""
+>
+
+</div>
+
+<div class="catName">
+PARAFERNALIA
+</div>
+
+</button>
+
+
+
+<button
+  class="cat"
+  onclick="filterCat('Hash')"
+>
+
+<div class="catImg">
+
+<img
+  src="IMG_5657.jpeg"
+  alt=""
+>
+
+</div>
+
+<div class="catName">
+HASH
+</div>
+
+</button>
+
+
+</div>
+
+</section>
+
+
+
+<!-- PRODUCTOS -->
+
+<section>
+
+<div class="sectionHead">
+
+<h2>
+PRODUCTOS
+</h2>
+
+
+<button
+  class="link"
+  onclick="filterCat('Todos')"
+>
+VER TODO →
+</button>
+
+</div>
+
+
+<div
+  class="grid"
+  id="products"
+>
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- CARRITO FLOTANTE -->
+
+<button
+  class="floating"
+  aria-label="Abrir carrito"
+  onclick="openCart()"
+>
+
+🛒
+
+<span
+  class="badge"
+  id="floatCount"
+>
+0
+</span>
+
+</button>
+
+
+
+<!-- =========================
+     MODALES
+========================= -->
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="backdrop(event)"
+>
+
+
+<div
+  class="modal"
+  id="productModal"
+>
+</div>
+
+
+<div
+  class="cartPanel"
+  id="cartPanel"
+>
+</div>
+
+
+</div>
+
+
+
 <script>
+
 
 /* =========================
    WHATSAPP
 ========================= */
 
-const WHATSAPP = "34600000000";
+const WHATSAPP =
+"34600000000";
 
 
 /* =========================
@@ -388,267 +1249,463 @@ const WHATSAPP = "34600000000";
 
 const products = [
 
-  {
-    category:"Ceniceros de cristal",
-    name:"RAW Original · Transparente",
-    image:"IMG_5663.jpeg"
-  },
 
-  {
-    category:"Ceniceros de plástico",
-    name:"Cenicero · Amarillo",
-    image:"IMG_5662.jpeg"
-  },
+{
+  name:"RAW Original · Transparente",
+  category:"Parafernalia",
+  image:"IMG_5663.jpeg"
+},
 
-  {
-    category:"Ceniceros de plástico",
-    name:"Cenicero · Verde",
-    image:"IMG_5661.jpeg"
-  },
 
-  {
-    category:"Ceniceros metálicos",
-    name:"Cenicero · Plateado",
-    image:"IMG_5660.jpeg"
-  },
+{
+  name:"Cenicero · Amarillo",
+  category:"Parafernalia",
+  image:"IMG_5662.jpeg"
+},
 
-  {
-    category:"Ceniceros de cristal",
-    name:"Cenicero · Transparente",
-    image:"IMG_5659.jpeg"
-  },
 
-  {
-    category:"Ceniceros de cristal",
-    name:"RAW Original · Rojo",
-    image:"IMG_5657.jpeg"
-  },
+{
+  name:"Cenicero · Verde",
+  category:"Parafernalia",
+  image:"IMG_5661.jpeg"
+},
 
-  {
-    category:"Ceniceros de cristal",
-    name:"RAW Original · Multicolor",
-    image:"IMG_5656.jpeg"
-  }
+
+{
+  name:"Cenicero · Plateado",
+  category:"Parafernalia",
+  image:"IMG_5660.jpeg"
+},
+
+
+{
+  name:"Cenicero · Transparente",
+  category:"Parafernalia",
+  image:"IMG_5659.jpeg"
+},
+
+
+{
+  name:"RAW Original · Rojo",
+  category:"Parafernalia",
+  image:"IMG_5657.jpeg"
+},
+
+
+{
+  name:"RAW Original · Multicolor",
+  category:"Parafernalia",
+  image:"IMG_5656.jpeg"
+}
+
 
 ];
 
 
-let selectedCategory = "Todos";
+let selected = "Todos";
 
 let cart = [];
 
+let current = null;
 
-/* =========================
-   CATEGORÍAS
-========================= */
-
-function renderCategories(){
-
-  const categories = [
-    "Todos",
-    "Ceniceros de cristal",
-    "Ceniceros de plástico",
-    "Ceniceros metálicos"
-  ];
-
-  document.getElementById("categories").innerHTML =
-    categories.map(category => {
-
-      let label = category;
-
-      if(category === "Ceniceros de cristal"){
-        label = "Cristal";
-      }
-
-      if(category === "Ceniceros de plástico"){
-        label = "Plástico";
-      }
-
-      if(category === "Ceniceros metálicos"){
-        label = "Metal";
-      }
-
-      return `
-        <button
-          class="${selectedCategory === category ? "active" : ""}"
-          onclick="selectCategory('${category}')">
-          ${label}
-        </button>
-      `;
-
-    }).join("");
-}
 
 
 /* =========================
-   SELECCIONAR CATEGORÍA
+   MOSTRAR PRODUCTOS
 ========================= */
 
-function selectCategory(category){
+function render(){
 
-  selectedCategory = category;
-
-  renderCategories();
-
-  renderProducts();
-}
-
-
-/* =========================
-   PRODUCTOS
-========================= */
-
-function renderProducts(){
-
-  const filtered =
-    selectedCategory === "Todos"
+  const list =
+    selected === "Todos"
       ? products
       : products.filter(
-          product => product.category === selectedCategory
+          p => p.category === selected
         );
 
-  const categories =
-    [...new Set(filtered.map(product => product.category))];
 
-  document.getElementById("products").innerHTML =
-    categories.map(category => {
+  const container =
+    document.getElementById("products");
 
-      const categoryProducts =
-        filtered.filter(
-          product => product.category === category
-        );
 
-      return `
+  if(!list.length){
 
-        <section>
+    container.innerHTML = `
+      <div class="empty">
+        Esta categoría está preparada
+        para recibir productos.
+        Próximamente 🔥
+      </div>
+    `;
 
-          <div class="section-title">
+    return;
 
-            <h2>${category}</h2>
+  }
 
-            <span>
-              ${categoryProducts.length}
-              modelos
-            </span>
+
+  container.innerHTML =
+    list.map(p => `
+
+      <article
+        class="card"
+        onclick="
+          openProductByName('${p.name.replace(/'/g,"\\'")}')
+        "
+      >
+
+        <div class="photo">
+
+          <img
+            src="${p.image}"
+            alt="${p.name}"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="info">
+
+          <div class="name">
+            ${p.name}
+          </div>
+
+
+          <div class="available">
+            ● Disponible
+          </div>
+
+
+          <div class="priceRow">
+
+            <div class="price">
+              Consultar
+            </div>
+
+
+            <button
+              class="add"
+              onclick="
+                event.stopPropagation();
+
+                openProductByName(
+                  '${p.name.replace(/'/g,"\\'")}'
+                )
+              "
+            >
+              AÑADIR
+            </button>
 
           </div>
 
-          <div class="products">
+        </div>
 
-            ${categoryProducts.map(product => `
+      </article>
 
-              <div class="card">
+    `).join("");
 
-                <div class="photo">
-
-                  <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                    loading="lazy"
-                  >
-
-                </div>
-
-                <div class="info">
-
-                  <div class="name">
-                    ${product.name}
-                  </div>
-
-                  <div class="available">
-                    ● Disponible
-                  </div>
-
-                  <button
-                    class="add"
-                    onclick="addToCart('${product.category}','${product.name}')">
-
-                    Añadir al pedido
-
-                  </button>
-
-                </div>
-
-              </div>
-
-            `).join("")}
-
-          </div>
-
-        </section>
-
-      `;
-
-    }).join("");
 }
 
 
+
 /* =========================
-   CARRITO
+   FILTRAR CATEGORÍA
 ========================= */
 
-function addToCart(category,name){
+function filterCat(category){
+
+  selected = category;
+
+  render();
+
+  document
+    .getElementById("products")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+
+/* =========================
+   ABRIR PRODUCTO
+========================= */
+
+function openProductByName(name){
+
+  const product =
+    products.find(
+      p => p.name === name
+    );
+
+
+  if(!product){
+    return;
+  }
+
+
+  current = {
+    ...product,
+    qty:1
+  };
+
+
+  document
+    .getElementById("productModal")
+    .innerHTML = `
+
+      <button
+        class="close"
+        onclick="closeOverlay()"
+      >
+        ×
+      </button>
+
+
+      <img
+        class="modalImg"
+        src="${product.image}"
+        alt="${product.name}"
+      >
+
+
+      <div class="modalBody">
+
+        <h3>
+          ${product.name}
+        </h3>
+
+
+        <div class="stock">
+          ● Disponible
+        </div>
+
+
+        <div class="modalPrice">
+          Consultar
+        </div>
+
+
+        <div class="qtyBox">
+
+          <button
+            onclick="changeModal(-1)"
+          >
+            −
+          </button>
+
+
+          <div
+            class="qtyNum"
+            id="modalQty"
+          >
+            1
+          </div>
+
+
+          <button
+            onclick="changeModal(1)"
+          >
+            +
+          </button>
+
+        </div>
+
+
+        <button
+          class="confirm"
+          onclick="confirmAdd()"
+        >
+          AÑADIR AL CARRITO →
+        </button>
+
+      </div>
+
+    `;
+
+
+  document
+    .getElementById("overlay")
+    .classList.add("show");
+
+
+  document
+    .getElementById("overlay")
+    .classList.remove("cartMode");
+
+}
+
+
+
+/* =========================
+   CANTIDAD
+========================= */
+
+function changeModal(number){
+
+  current.qty =
+    Math.max(
+      1,
+      current.qty + number
+    );
+
+
+  document
+    .getElementById("modalQty")
+    .textContent =
+      current.qty;
+
+}
+
+
+
+/* =========================
+   AÑADIR AL CARRITO
+========================= */
+
+function confirmAdd(){
+
+  for(
+    let i = 0;
+    i < current.qty;
+    i++
+  ){
+
+    addItem(current);
+
+  }
+
+
+  flyToCart();
+
+  closeOverlay();
+
+}
+
+
+
+/* =========================
+   AÑADIR PRODUCTO
+========================= */
+
+function addItem(product){
 
   const existing =
     cart.find(
       item =>
-        item.category === category &&
-        item.name === name
+        item.name === product.name
     );
+
 
   if(existing){
 
-    existing.quantity++;
+    existing.qty++;
 
   }else{
 
     cart.push({
-      category:category,
-      name:name,
-      quantity:1
+
+      name:product.name,
+
+      category:product.category,
+
+      image:product.image,
+
+      qty:1
+
     });
 
   }
 
-  updateCount();
-
-  openCart();
 }
 
-
-function updateCount(){
-
-  document.getElementById("count").textContent =
-    cart.reduce(
-      (total,item) => total + item.quantity,
-      0
-    );
-
-}
 
 
 /* =========================
-   ABRIR / CERRAR CARRITO
+   ANIMACIÓN
+========================= */
+
+function flyToCart(){
+
+  const dot =
+    document.createElement("div");
+
+
+  dot.className =
+    "fly";
+
+
+  dot.style.left =
+    "50%";
+
+
+  dot.style.top =
+    "65%";
+
+
+  document.body.appendChild(dot);
+
+
+  setTimeout(
+    () => dot.remove(),
+    600
+  );
+
+
+  updateCount();
+
+}
+
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+function updateCount(){
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.qty,
+      0
+    );
+
+
+  document
+    .getElementById("topCount")
+    .textContent =
+      total;
+
+
+  document
+    .getElementById("floatCount")
+    .textContent =
+      total;
+
+}
+
+
+
+/* =========================
+   ABRIR CARRITO
 ========================= */
 
 function openCart(){
 
   renderCart();
 
-  document
-    .getElementById("overlay")
-    .classList.add("show");
-
-}
-
-
-function closeCart(){
 
   document
     .getElementById("overlay")
-    .classList.remove("show");
+    .classList.add(
+      "show",
+      "cartMode"
+    );
 
 }
+
 
 
 /* =========================
@@ -657,71 +1714,159 @@ function closeCart(){
 
 function renderCart(){
 
-  const container =
-    document.getElementById("cartItems");
-
-  if(cart.length === 0){
-
-    container.innerHTML =
-      "<p style='color:#9eafa5'>Tu pedido está vacío.</p>";
-
-    return;
-  }
+  const panel =
+    document.getElementById(
+      "cartPanel"
+    );
 
 
-  container.innerHTML =
-    cart.map((item,index) => `
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum + item.qty,
+      0
+    );
 
-      <div class="item">
 
-        <div>
+  panel.innerHTML = `
 
-          <div class="item-name">
-            ${item.name}
+    <div class="cartTitle">
+
+      <h3>
+        CARRITO (${total})
+      </h3>
+
+
+      <button
+        class="x"
+        onclick="closeOverlay()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    ${
+      cart.length
+
+      ?
+
+      cart.map(
+        (item,index) => `
+
+          <div class="cartLine">
+
+            <img
+              src="${item.image}"
+              alt=""
+            >
+
+
+            <div>
+
+              <div class="lineName">
+                ${item.name}
+              </div>
+
+
+              <div class="lineCat">
+                ${item.category}
+              </div>
+
+            </div>
+
+
+            <div class="miniQty">
+
+              <button
+                onclick="
+                  qty(${index},-1)
+                "
+              >
+                −
+              </button>
+
+
+              <span>
+                ${item.qty}
+              </span>
+
+
+              <button
+                onclick="
+                  qty(${index},1)
+                "
+              >
+                +
+              </button>
+
+            </div>
+
           </div>
 
-          <div class="item-category">
-            ${item.category}
-          </div>
+        `
+      ).join("")
 
-          <div class="qty">
+      :
 
-            <button
-              onclick="changeQuantity(${index},-1)">
-              −
-            </button>
-
-            ${item.quantity}
-
-            <button
-              onclick="changeQuantity(${index},1)">
-              +
-            </button>
-
-          </div>
-
+      `
+        <div class="empty">
+          Tu pedido está vacío.
         </div>
+      `
 
-      </div>
+    }
 
-    `).join("");
+
+    <div class="total">
+
+      <span>
+        TOTAL
+      </span>
+
+
+      <span>
+        Consultar
+      </span>
+
+    </div>
+
+
+    <button
+      class="wa"
+      onclick="orderWhatsApp()"
+    >
+      PEDIR POR WHATSAPP →
+    </button>
+
+
+    <div class="note">
+      Se abrirá WhatsApp con tu pedido
+      preparado para enviar.
+    </div>
+
+  `;
 
 }
 
 
+
 /* =========================
-   CANTIDADES
+   CAMBIAR CANTIDAD CARRITO
 ========================= */
 
-function changeQuantity(index,change){
+function qty(index,number){
 
-  cart[index].quantity += change;
+  cart[index].qty += number;
 
-  if(cart[index].quantity <= 0){
+
+  if(cart[index].qty <= 0){
 
     cart.splice(index,1);
 
   }
+
 
   updateCount();
 
@@ -730,61 +1875,85 @@ function changeQuantity(index,change){
 }
 
 
+
 /* =========================
-   WHATSAPP
+   PEDIDO WHATSAPP
 ========================= */
 
-function sendWhatsApp(){
+function orderWhatsApp(){
 
-  if(cart.length === 0){
-
-    alert("Tu pedido está vacío.");
-
+  if(!cart.length){
     return;
   }
 
 
-  let message =
-    "Hola, quiero hacer un pedido:\n\n";
+  const message =
+    "Hola, quiero hacer un pedido:\n" +
 
+    cart.map(
+      item =>
+        "• " +
+        item.name +
+        " (" +
+        item.category +
+        ") × " +
+        item.qty
+    ).join("\n") +
 
-  cart.forEach(item => {
-
-    message +=
-      "• " +
-      item.name +
-      " (" +
-      item.category +
-      ") × " +
-      item.quantity +
-      "\n";
-
-  });
-
-
-  message +=
     "\nGracias 🙏";
 
 
-  const url =
+  window.open(
+
     "https://wa.me/" +
     WHATSAPP +
     "?text=" +
-    encodeURIComponent(message);
+    encodeURIComponent(message),
 
+    "_blank"
 
-  window.location.href = url;
+  );
 
 }
 
 
+
 /* =========================
-   INICIAR
+   CERRAR
 ========================= */
 
-renderCategories();
+function closeOverlay(){
 
-renderProducts();
+  document
+    .getElementById("overlay")
+    .classList.remove(
+      "show",
+      "cartMode"
+    );
+
+}
+
+
+function backdrop(event){
+
+  if(
+    event.target.id ===
+    "overlay"
+  ){
+
+    closeOverlay();
+
+  }
+
+}
+
+
+
+/* =========================
+   INICIO
+========================= */
+
+render();
 
 updateCount();
 

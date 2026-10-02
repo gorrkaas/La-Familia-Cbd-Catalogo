@@ -3,215 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Familia CBD</title>
+
+<title>La Familia CBD · Catálogo</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-background:#07110d;
-color:white;
+*{
+  box-sizing:border-box;
 }
 
+:root{
+  --fondo:#06100b;
+  --tarjeta:#0d1c13;
+  --tarjeta2:#12251a;
+  --verde:#39e56f;
+  --verde2:#20c95a;
+  --texto:#ffffff;
+  --gris:#9aaa9f;
+  --borde:#24412f;
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 50% -10%, #1a4228 0%, #06100b 42%);
+  color:var(--texto);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  padding-bottom:100px;
+}
+
+/* CABECERA */
+
 header{
-padding:22px 18px;
-background:#07110d;
-position:sticky;
-top:0;
-z-index:10;
-border-bottom:1px solid #20362a;
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:17px 18px;
+  background:rgba(6,16,11,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--borde);
 }
 
 .logo{
-font-size:24px;
-font-weight:900;
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:.3px;
 }
 
 .logo span{
-color:#39e56f;
+  color:var(--verde);
 }
 
+/* PRESENTACIÓN */
+
 .hero{
-margin:16px;
-padding:22px;
-border-radius:22px;
-background:#10251a;
-border:1px solid #244431;
+  margin:18px 16px 22px;
+  padding:26px 21px;
+  border-radius:25px;
+  background:
+    linear-gradient(145deg,#153622,#0a1710);
+  border:1px solid #285238;
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .hero small{
-color:#39e56f;
-font-weight:800;
+  color:var(--verde);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.7px;
 }
 
 .hero h1{
-margin:7px 0;
-font-size:30px;
+  margin:8px 0 7px;
+  font-size:32px;
+  line-height:1.05;
 }
 
 .hero p{
-margin:0;
-color:#aab9b0;
+  margin:0;
+  color:var(--gris);
+  font-size:14px;
+  line-height:1.5;
 }
 
+/* FILTROS */
+
 .categories{
-display:flex;
-gap:8px;
-overflow:auto;
-padding:0 16px 15px;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:0 16px 20px;
+  scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
 }
 
 .categories button{
-border:1px solid #294334;
-background:#0d1913;
-color:white;
-padding:10px 16px;
-border-radius:30px;
-white-space:nowrap;
+  flex:none;
+  border:1px solid var(--borde);
+  background:#0c1811;
+  color:white;
+  padding:10px 16px;
+  border-radius:30px;
+  font-weight:800;
+  font-size:13px;
 }
 
 .categories button.active{
-background:#39e56f;
-color:#061009;
+  background:var(--verde);
+  color:#061009;
+  border-color:var(--verde);
 }
+
+/* SECCIONES */
 
 section{
-padding:0 16px 18px;
+  padding:0 16px 28px;
 }
 
-section h2{
-font-size:22px;
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:13px;
 }
+
+.section-title h2{
+  margin:0;
+  font-size:21px;
+}
+
+.section-title span{
+  color:var(--gris);
+  font-size:12px;
+}
+
+/* PRODUCTOS */
 
 .products{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
 .card{
-background:#0e1d15;
-border:1px solid #243b2e;
-border-radius:18px;
-overflow:hidden;
+  overflow:hidden;
+  border-radius:19px;
+  background:
+    linear-gradient(160deg,#122319,#0b1710);
+  border:1px solid var(--borde);
+  box-shadow:0 9px 25px rgba(0,0,0,.28);
 }
 
 .photo{
-height:125px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:48px;
-background:#162b1e;
+  height:185px;
+  padding:10px;
+  background:#eeeeeb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
 }
 
 .info{
-padding:12px;
+  padding:12px;
 }
 
 .name{
-font-weight:900;
-font-size:17px;
+  font-size:15px;
+  font-weight:900;
+  line-height:1.2;
 }
 
 .available{
-color:#39e56f;
-font-size:12px;
-font-weight:800;
-margin:6px 0;
-}
-
-.price{
-font-weight:900;
-font-size:16px;
+  margin-top:7px;
+  color:var(--verde);
+  font-size:11px;
+  font-weight:900;
 }
 
 .add{
-width:100%;
-border:0;
-border-radius:11px;
-padding:11px;
-margin-top:10px;
-background:#39e56f;
-font-weight:900;
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border:0;
+  border-radius:11px;
+  background:var(--verde);
+  color:#061009;
+  font-weight:900;
+  font-size:12px;
 }
+
+/* BOTÓN PEDIDO */
 
 .cart-button{
-position:fixed;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-width:calc(100% - 28px);
-max-width:590px;
-border:0;
-border-radius:16px;
-padding:16px;
-background:#25d366;
-font-weight:900;
-font-size:16px;
-z-index:20;
+  position:fixed;
+  left:50%;
+  bottom:14px;
+  transform:translateX(-50%);
+  width:calc(100% - 28px);
+  max-width:590px;
+  padding:16px;
+  border:0;
+  border-radius:17px;
+  background:#25d366;
+  color:#061009;
+  font-size:16px;
+  font-weight:950;
+  z-index:30;
+  box-shadow:0 8px 30px rgba(0,0,0,.55);
 }
 
+/* CARRITO */
+
 .overlay{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:30;
-align-items:flex-end;
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:50;
+  background:rgba(0,0,0,.72);
+  align-items:flex-end;
 }
 
 .overlay.show{
-display:flex;
+  display:flex;
 }
 
 .cart{
-width:100%;
-max-width:620px;
-margin:auto;
-background:#0b1711;
-border-radius:25px 25px 0 0;
-padding:20px;
-max-height:80vh;
-overflow:auto;
+  width:100%;
+  max-width:620px;
+  margin:auto;
+  max-height:82vh;
+  overflow:auto;
+  padding:20px;
+  background:#0b1711;
+  border-radius:25px 25px 0 0;
 }
 
 .close{
-float:right;
-border:0;
-background:#1b2b22;
-color:white;
-border-radius:50%;
-padding:8px 11px;
+  float:right;
+  border:0;
+  background:#1b2b22;
+  color:white;
+  border-radius:50%;
+  padding:8px 11px;
+}
+
+.cart h2{
+  margin-top:5px;
 }
 
 .item{
-display:flex;
-justify-content:space-between;
-gap:10px;
-padding:14px 0;
-border-bottom:1px solid #23382b;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:14px 0;
+  border-bottom:1px solid #23382b;
+}
+
+.item-name{
+  font-weight:900;
+}
+
+.item-category{
+  color:var(--gris);
+  font-size:12px;
+  margin-top:3px;
+}
+
+.qty{
+  margin-top:9px;
 }
 
 .qty button{
-background:#182a20;
-color:white;
-border:1px solid #304839;
-border-radius:8px;
-padding:5px 10px;
+  background:#182a20;
+  color:white;
+  border:1px solid #304839;
+  border-radius:8px;
+  padding:5px 11px;
 }
 
 .whatsapp{
-width:100%;
-border:0;
-border-radius:13px;
-padding:15px;
-margin-top:15px;
-background:#25d366;
-font-weight:900;
-font-size:15px;
+  width:100%;
+  margin-top:16px;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  background:#25d366;
+  color:#061009;
+  font-size:15px;
+  font-weight:900;
+}
+
+/* TABLET / PC */
+
+@media(min-width:700px){
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .photo{
+    height:240px;
+  }
+
+  .hero{
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  section{
+    max-width:1100px;
+    margin:auto;
+  }
 }
 </style>
 </head>
@@ -219,13 +331,20 @@ font-size:15px;
 <body>
 
 <header>
-<div class="logo">LA FAMILIA <span>CBD</span></div>
+  <div class="logo">
+    LA FAMILIA <span>CBD</span>
+  </div>
 </header>
 
 <div class="hero">
-<small>CATÁLOGO DIGITAL</small>
-<h1>Elige tus variedades</h1>
-<p>Productos disponibles de La Familia CBD.</p>
+  <small>CATÁLOGO DIGITAL</small>
+
+  <h1>Parafernalia</h1>
+
+  <p>
+    Descubre nuestra selección de accesorios.
+    Elige tus productos y prepara tu pedido por WhatsApp.
+  </p>
 </div>
 
 <div class="categories" id="categories"></div>
@@ -233,367 +352,440 @@ font-size:15px;
 <main id="products"></main>
 
 <button class="cart-button" onclick="openCart()">
-🛒 Ver pedido (<span id="count">0</span>)
+  🛒 Ver pedido (<span id="count">0</span>)
 </button>
 
 <div class="overlay" id="overlay">
-<div class="cart">
 
-<button class="close" onclick="closeCart()">✕</button>
+  <div class="cart">
 
-<h2>Tu pedido</h2>
+    <button class="close" onclick="closeCart()">✕</button>
 
-<div id="cartItems"></div>
+    <h2>Tu pedido</h2>
 
-<button class="whatsapp" onclick="sendWhatsApp()">
-💬 PEDIR AHORA POR WHATSAPP
-</button>
+    <div id="cartItems"></div>
 
-</div>
+    <button class="whatsapp" onclick="sendWhatsApp()">
+      💬 PEDIR AHORA POR WHATSAPP
+    </button>
+
+  </div>
+
 </div>
 
 <script>
 
+/* =========================
+   WHATSAPP
+========================= */
+
 const WHATSAPP = "34600000000";
+
+
+/* =========================
+   PRODUCTOS
+========================= */
 
 const products = [
 
-{
-category:"Flores",
-name:"Mango",
-emoji:"🥭",
-price:8.90
-},
+  {
+    category:"Ceniceros de cristal",
+    name:"RAW Original · Transparente",
+    image:"IMG_5663.jpeg"
+  },
 
-{
-category:"Flores",
-name:"Canatonic",
-emoji:"🌿",
-price:8.90
-},
+  {
+    category:"Ceniceros de plástico",
+    name:"Cenicero · Amarillo",
+    image:"IMG_5662.jpeg"
+  },
 
-{
-category:"Flores",
-name:"Guavalato",
-emoji:"🍈",
-price:8.90
-},
+  {
+    category:"Ceniceros de plástico",
+    name:"Cenicero · Verde",
+    image:"IMG_5661.jpeg"
+  },
 
-{
-category:"Resinas",
-name:"Ketama",
-emoji:"🟤",
-price:7.90
-},
+  {
+    category:"Ceniceros metálicos",
+    name:"Cenicero · Plateado",
+    image:"IMG_5660.jpeg"
+  },
 
-{
-category:"Resinas",
-name:"Lemon",
-emoji:"🍋",
-price:7.90
-},
+  {
+    category:"Ceniceros de cristal",
+    name:"Cenicero · Transparente",
+    image:"IMG_5659.jpeg"
+  },
 
-{
-category:"Resinas",
-name:"Melon Kush",
-emoji:"🍈",
-price:7.90
-},
+  {
+    category:"Ceniceros de cristal",
+    name:"RAW Original · Rojo",
+    image:"IMG_5657.jpeg"
+  },
 
-{
-category:"Vapers",
-name:"Lemon Haze",
-emoji:"🍋",
-price:12.90
-},
-
-{
-category:"Vapers",
-name:"Strawberry",
-emoji:"🍓",
-price:12.90
-},
-
-{
-category:"Vapers",
-name:"Mango",
-emoji:"🥭",
-price:12.90
-}
+  {
+    category:"Ceniceros de cristal",
+    name:"RAW Original · Multicolor",
+    image:"IMG_5656.jpeg"
+  }
 
 ];
 
-let selectedCategory="Todos";
-let cart=[];
 
-function money(number){
+let selectedCategory = "Todos";
 
-return number.toLocaleString("es-ES",{
-style:"currency",
-currency:"EUR"
-});
+let cart = [];
 
-}
+
+/* =========================
+   CATEGORÍAS
+========================= */
 
 function renderCategories(){
 
-const categories=[
-"Todos",
-"Flores",
-"Resinas",
-"Vapers"
-];
+  const categories = [
+    "Todos",
+    "Ceniceros de cristal",
+    "Ceniceros de plástico",
+    "Ceniceros metálicos"
+  ];
 
-document.getElementById("categories").innerHTML=
-categories.map(category=>`
+  document.getElementById("categories").innerHTML =
+    categories.map(category => {
 
-<button
-class="${selectedCategory===category?"active":""}"
-onclick="selectCategory('${category}')">
+      let label = category;
 
-${category}
+      if(category === "Ceniceros de cristal"){
+        label = "Cristal";
+      }
 
-</button>
+      if(category === "Ceniceros de plástico"){
+        label = "Plástico";
+      }
 
-`).join("");
+      if(category === "Ceniceros metálicos"){
+        label = "Metal";
+      }
 
+      return `
+        <button
+          class="${selectedCategory === category ? "active" : ""}"
+          onclick="selectCategory('${category}')">
+          ${label}
+        </button>
+      `;
+
+    }).join("");
 }
+
+
+/* =========================
+   SELECCIONAR CATEGORÍA
+========================= */
 
 function selectCategory(category){
 
-selectedCategory=category;
+  selectedCategory = category;
 
-renderCategories();
-renderProducts();
+  renderCategories();
 
+  renderProducts();
 }
+
+
+/* =========================
+   PRODUCTOS
+========================= */
 
 function renderProducts(){
 
-const filtered=
-selectedCategory==="Todos"
-?products
-:products.filter(p=>p.category===selectedCategory);
+  const filtered =
+    selectedCategory === "Todos"
+      ? products
+      : products.filter(
+          product => product.category === selectedCategory
+        );
 
-const groups=[
-...new Set(filtered.map(p=>p.category))
-];
+  const categories =
+    [...new Set(filtered.map(product => product.category))];
 
-document.getElementById("products").innerHTML=
+  document.getElementById("products").innerHTML =
+    categories.map(category => {
 
-groups.map(category=>`
+      const categoryProducts =
+        filtered.filter(
+          product => product.category === category
+        );
 
-<section>
+      return `
 
-<h2>${category}</h2>
+        <section>
 
-<div class="products">
+          <div class="section-title">
 
-${filtered
-.filter(p=>p.category===category)
-.map((p,index)=>`
+            <h2>${category}</h2>
 
-<div class="card">
+            <span>
+              ${categoryProducts.length}
+              modelos
+            </span>
 
-<div class="photo">
-${p.emoji}
-</div>
+          </div>
 
-<div class="info">
+          <div class="products">
 
-<div class="name">
-${p.name}
-</div>
+            ${categoryProducts.map(product => `
 
-<div class="available">
-● Disponible
-</div>
+              <div class="card">
 
-<div class="price">
-${money(p.price)}
-</div>
+                <div class="photo">
 
-<button
-class="add"
-onclick="addToCart('${p.category}','${p.name}',${p.price})">
+                  <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                  >
 
-Añadir al pedido
+                </div>
 
-</button>
+                <div class="info">
 
-</div>
+                  <div class="name">
+                    ${product.name}
+                  </div>
 
-</div>
+                  <div class="available">
+                    ● Disponible
+                  </div>
 
-`).join("")}
+                  <button
+                    class="add"
+                    onclick="addToCart('${product.category}','${product.name}')">
 
-</div>
+                    Añadir al pedido
 
-</section>
+                  </button>
 
-`).join("");
+                </div>
 
+              </div>
+
+            `).join("")}
+
+          </div>
+
+        </section>
+
+      `;
+
+    }).join("");
 }
 
-function addToCart(category,name,price){
 
-const existing=
-cart.find(item=>
-item.name===name &&
-item.category===category
-);
+/* =========================
+   CARRITO
+========================= */
 
-if(existing){
+function addToCart(category,name){
 
-existing.quantity++;
+  const existing =
+    cart.find(
+      item =>
+        item.category === category &&
+        item.name === name
+    );
 
-}else{
+  if(existing){
 
-cart.push({
-category,
-name,
-price,
-quantity:1
-});
+    existing.quantity++;
 
+  }else{
+
+    cart.push({
+      category:category,
+      name:name,
+      quantity:1
+    });
+
+  }
+
+  updateCount();
+
+  openCart();
 }
 
-updateCount();
-openCart();
-
-}
 
 function updateCount(){
 
-document.getElementById("count").textContent=
-cart.reduce((total,item)=>total+item.quantity,0);
+  document.getElementById("count").textContent =
+    cart.reduce(
+      (total,item) => total + item.quantity,
+      0
+    );
 
 }
+
+
+/* =========================
+   ABRIR / CERRAR CARRITO
+========================= */
 
 function openCart(){
 
-renderCart();
+  renderCart();
 
-document.getElementById("overlay")
-.classList.add("show");
+  document
+    .getElementById("overlay")
+    .classList.add("show");
 
 }
+
 
 function closeCart(){
 
-document.getElementById("overlay")
-.classList.remove("show");
+  document
+    .getElementById("overlay")
+    .classList.remove("show");
 
 }
+
+
+/* =========================
+   MOSTRAR CARRITO
+========================= */
 
 function renderCart(){
 
-const container=
-document.getElementById("cartItems");
+  const container =
+    document.getElementById("cartItems");
 
-if(cart.length===0){
+  if(cart.length === 0){
 
-container.innerHTML=
-"<p style='color:#9eafa5'>Tu pedido está vacío.</p>";
+    container.innerHTML =
+      "<p style='color:#9eafa5'>Tu pedido está vacío.</p>";
 
-return;
+    return;
+  }
+
+
+  container.innerHTML =
+    cart.map((item,index) => `
+
+      <div class="item">
+
+        <div>
+
+          <div class="item-name">
+            ${item.name}
+          </div>
+
+          <div class="item-category">
+            ${item.category}
+          </div>
+
+          <div class="qty">
+
+            <button
+              onclick="changeQuantity(${index},-1)">
+              −
+            </button>
+
+            ${item.quantity}
+
+            <button
+              onclick="changeQuantity(${index},1)">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
-container.innerHTML=
 
-cart.map((item,index)=>`
-
-<div class="item">
-
-<div>
-
-<strong>${item.name}</strong>
-
-<div style="color:#9eafa5;font-size:13px">
-${item.category}
-</div>
-
-<div class="qty">
-
-<button onclick="changeQuantity(${index},-1)">
-−
-</button>
-
-${item.quantity}
-
-<button onclick="changeQuantity(${index},1)">
-+
-</button>
-
-</div>
-
-</div>
-
-<strong>
-${money(item.price*item.quantity)}
-</strong>
-
-</div>
-
-`).join("");
-
-}
+/* =========================
+   CANTIDADES
+========================= */
 
 function changeQuantity(index,change){
 
-cart[index].quantity+=change;
+  cart[index].quantity += change;
 
-if(cart[index].quantity<=0){
+  if(cart[index].quantity <= 0){
 
-cart.splice(index,1);
+    cart.splice(index,1);
+
+  }
+
+  updateCount();
+
+  renderCart();
 
 }
 
-updateCount();
-renderCart();
 
-}
+/* =========================
+   WHATSAPP
+========================= */
 
 function sendWhatsApp(){
 
-if(cart.length===0){
+  if(cart.length === 0){
 
-alert("Tu pedido está vacío.");
+    alert("Tu pedido está vacío.");
 
-return;
+    return;
+  }
+
+
+  let message =
+    "Hola, quiero hacer un pedido:\n\n";
+
+
+  cart.forEach(item => {
+
+    message +=
+      "• " +
+      item.name +
+      " (" +
+      item.category +
+      ") × " +
+      item.quantity +
+      "\n";
+
+  });
+
+
+  message +=
+    "\nGracias 🙏";
+
+
+  const url =
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  window.location.href = url;
 
 }
 
-let message=
-"Hola, quiero hacer un pedido:%0A%0A";
 
-cart.forEach(item=>{
-
-message+=
-"• "+
-item.name+
-" ("+
-item.category+
-") × "+
-item.quantity+
-"%0A";
-
-});
-
-message+=
-"%0AGracias 🙏";
-
-window.location.href=
-"https://wa.me/"+
-WHATSAPP+
-"?text="+
-message;
-
-}
+/* =========================
+   INICIAR
+========================= */
 
 renderCategories();
+
 renderProducts();
+
 updateCount();
 
 </script>

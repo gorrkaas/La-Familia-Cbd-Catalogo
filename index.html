@@ -8,607 +8,466 @@
 <title>La Familia CBD · Catálogo</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 :root{
-  --verde:#19d69a;
-  --verde2:#0fae7c;
-  --negro:#070b09;
-  --blanco:#ffffff;
-  --gris:#68706c;
-  --linea:#dfe4e1;
+  --g:#18d59a;
+  --g2:#0da978;
+  --k:#050806;
+  --w:#fff;
+  --mut:#6c756f;
+  --line:#dfe5e1
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   background:#f5f6f5;
-  color:#111;
-  font-family:Arial,Helvetica,sans-serif;
+  color:#0b0f0d;
+  font-family:Arial,Helvetica,sans-serif
+}
+
+button,input{
+  font:inherit
 }
 
 button{
-  font:inherit;
-  cursor:pointer;
+  cursor:pointer
 }
 
-
-/* =========================
-   CABECERA
-========================= */
+/* HEADER */
 
 .top{
   position:sticky;
   top:0;
-  z-index:30;
-
-  background:rgba(7,11,9,.97);
-  color:white;
-
-  border-bottom:1px solid #27332d;
-
-  padding:10px 14px;
-
-  display:flex;
-  align-items:center;
-  gap:12px;
+  z-index:50;
+  background:rgba(5,8,6,.97);
+  color:#fff;
+  border-bottom:1px solid #26312b;
+  padding:8px 12px;
+  display:grid;
+  grid-template-columns:44px 1fr 88px;
+  align-items:center
 }
 
 .icon{
   width:42px;
   height:42px;
-
   border:0;
-  background:transparent;
-
-  color:white;
-
+  background:none;
+  color:#fff;
+  font-size:23px;
   display:grid;
-  place-items:center;
-
-  font-size:25px;
+  place-items:center
 }
 
 .logo{
-  width:78px;
-  height:62px;
-
-  margin:auto;
+  width:74px;
+  height:58px;
+  object-fit:contain;
+  justify-self:center
 }
 
 .actions{
   display:flex;
-  gap:2px;
+  justify-content:flex-end;
+  gap:2px
 }
 
 .cartTop{
-  position:relative;
+  position:relative
 }
 
 .badge{
   position:absolute;
-
-  right:0;
-  top:0;
-
+  right:-1px;
+  top:-1px;
   min-width:19px;
   height:19px;
-
   padding:0 5px;
-
   border-radius:20px;
-
-  background:var(--verde);
-
+  background:var(--g);
   color:#03110b;
-
-  font-size:11px;
+  font-size:10px;
   font-weight:900;
-
   display:grid;
-  place-items:center;
+  place-items:center
 }
 
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-  min-height:510px;
+  min-height:480px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(0,0,0,.12),
-      rgba(0,0,0,.82)
+      rgba(0,0,0,.1),
+      rgba(0,0,0,.88)
     ),
     radial-gradient(
       circle at 75% 35%,
-      #155f46 0,
+      #176346 0,
       #07110c 48%,
-      #020504 100%
+      #020403 100%
     );
 
-  color:white;
+  color:#fff;
 
-  position:relative;
-  overflow:hidden;
-
-  padding:65px 24px 38px;
+  padding:70px 22px 36px;
 
   display:flex;
   align-items:flex-end;
+
+  position:relative;
+  overflow:hidden
 }
 
 .hero:before{
   content:"";
-
   position:absolute;
   inset:0;
 
   background:
     repeating-linear-gradient(
       125deg,
-      transparent 0 35px,
-      rgba(25,214,154,.035) 36px 37px
-    );
+      transparent 0 34px,
+      rgba(24,213,154,.04) 35px 36px
+    )
 }
 
-.heroContent{
+.heroIn{
   position:relative;
-  z-index:2;
+  z-index:1
 }
 
 .kicker{
   font-size:10px;
   letter-spacing:4px;
-
-  font-weight:800;
-
+  font-weight:900;
   color:#b9c4be;
-
-  margin-bottom:15px;
+  margin-bottom:15px
 }
 
 .hero h1{
-  font-size:52px;
+  font-size:54px;
   line-height:.86;
-
   margin:0 0 18px;
-
   font-weight:1000;
-
-  letter-spacing:-3px;
+  letter-spacing:-3px
 }
 
 .hero h1 span{
   display:block;
-
-  color:var(--verde);
-
-  font-style:italic;
+  color:var(--g);
+  font-style:italic
 }
 
 .hero p{
-  font-size:13px;
-
+  font-size:12px;
   line-height:1.5;
-
   color:#dce2df;
-
   max-width:330px;
-
-  margin:0 0 25px;
+  margin:0 0 22px
 }
 
 .cta{
   border:0;
-
-  background:var(--verde);
-
-  color:#02110b;
-
+  background:var(--g);
+  color:#03120c;
+  padding:14px 20px;
   border-radius:3px;
-
-  padding:14px 21px;
-
   font-size:12px;
-
-  font-weight:1000;
+  font-weight:1000
 }
 
-
-/* =========================
-   CONTENIDO
-========================= */
+/* CONTENT */
 
 .wrap{
-  max-width:1100px;
-
+  max-width:1180px;
   margin:auto;
-
-  padding:26px 16px 110px;
+  padding:24px 14px 110px
 }
 
 .sectionHead{
   display:flex;
-
   justify-content:space-between;
   align-items:end;
-
-  margin:8px 0 15px;
+  margin:8px 0 14px
 }
 
 .sectionHead h2{
-  font-size:30px;
+  font-size:29px;
   line-height:1;
-
   margin:0;
-
   font-weight:1000;
-
-  letter-spacing:-1px;
+  letter-spacing:-1px
 }
 
-.link{
-  border:0;
-
-  background:none;
-
-  color:var(--verde2);
-
-  font-weight:900;
-
-  font-size:12px;
-}
-
-
-/* =========================
-   CATEGORÍAS
-========================= */
-
-.categories{
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+.search{
+  display:flex;
   gap:8px;
+  margin:0 0 18px
+}
 
-  margin-bottom:35px;
+.search input{
+  width:100%;
+  border:1px solid #ccd5d0;
+  background:#fff;
+  border-radius:4px;
+  padding:13px 14px;
+  outline:none;
+  font-size:13px
+}
+
+.search input:focus{
+  border-color:var(--g2)
+}
+
+/* CATEGORIES */
+
+.cats{
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  padding:2px 1px 9px;
+  margin-bottom:24px;
+  scrollbar-width:none
+}
+
+.cats::-webkit-scrollbar{
+  display:none
 }
 
 .cat{
-  border:1px solid #cfd7d3;
-
-  background:white;
-
-  padding:0;
-
-  border-radius:4px;
-
-  overflow:hidden;
-
-  text-align:left;
+  white-space:nowrap;
+  border:1px solid #cdd6d1;
+  background:#fff;
+  border-radius:999px;
+  padding:9px 13px;
+  font-size:10px;
+  font-weight:1000
 }
 
-.catImg{
-  height:92px;
-
-  background:#111;
+.cat.active{
+  background:var(--k);
+  color:#fff;
+  border-color:var(--k)
 }
 
-.catImg img{
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  opacity:.88;
+.count{
+  font-size:10px;
+  color:var(--mut);
+  font-weight:800
 }
 
-.catName{
-  font-size:11px;
-
-  font-weight:1000;
-
-  padding:10px 9px;
-}
-
-
-/* =========================
-   PRODUCTOS
-========================= */
+/* PRODUCTS */
 
 .grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-  gap:14px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px
 }
 
 .card{
-  background:white;
-
-  border:1px solid var(--linea);
-
+  background:#fff;
+  border:1px solid var(--line);
   border-radius:5px;
-
   overflow:hidden;
-
-  transition:
-    transform .2s;
+  transition:transform .18s
 }
 
 .card:active{
-  transform:scale(.985);
+  transform:scale(.985)
 }
 
 .photo{
   aspect-ratio:1/1;
-
-  background:#101412;
-
+  background:#101512;
   overflow:hidden;
+  display:grid;
+  place-items:center
 }
 
 .photo img{
   width:100%;
   height:100%;
-
   object-fit:cover;
+  display:block
+}
 
-  display:block;
+.noPhoto{
+  color:#8c9891;
+  font-size:9px;
+  letter-spacing:1px;
+  font-weight:900;
+  text-align:center;
+  padding:15px
 }
 
 .info{
-  padding:11px 10px 12px;
+  padding:10px 9px 11px
 }
 
 .name{
+  font-size:13px;
+  line-height:1.12;
   font-weight:1000;
-
-  font-size:14px;
-
-  line-height:1.1;
-
-  min-height:32px;
+  min-height:31px
 }
 
 .available{
   font-size:10px;
-
-  color:#16936e;
-
+  color:#13936d;
   margin:6px 0 9px;
+  font-weight:900
+}
 
-  font-weight:800;
+.available.off{
+  color:#8b3f3f
 }
 
 .priceRow{
   display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:8px;
-}
-
-.price{
-  font-size:16px;
-
-  font-weight:1000;
+  justify-content:flex-end
 }
 
 .add{
   border:0;
-
-  background:var(--verde);
-
+  background:var(--g);
   color:#04130d;
-
   font-weight:1000;
-
   font-size:10px;
-
-  padding:10px 12px;
-
-  border-radius:3px;
+  padding:9px 11px;
+  border-radius:3px
 }
 
-.empty{
-  grid-column:1/-1;
-
-  border:1px dashed #bfc9c4;
-
-  padding:30px;
-
-  text-align:center;
-
-  color:#6d7772;
+.add.off{
+  background:#dfe4e1;
+  color:#707872
 }
 
-
-/* =========================
-   CARRITO FLOTANTE
-========================= */
+/* FLOATING CART */
 
 .floating{
   position:fixed;
-
-  right:18px;
-  bottom:20px;
-
-  z-index:35;
-
+  right:17px;
+  bottom:19px;
+  z-index:45;
   width:60px;
   height:60px;
-
   border:0;
-
   border-radius:50%;
-
-  background:var(--verde);
-
-  color:#04130d;
-
-  box-shadow:
-    0 12px 35px rgba(0,0,0,.3);
-
-  font-size:24px;
+  background:var(--g);
+  color:#03120c;
+  box-shadow:0 12px 35px rgba(0,0,0,.3);
+  font-size:23px
 }
 
 .floating .badge{
   right:0;
-  top:-2px;
+  top:-2px
 }
 
-
-/* =========================
-   MODALES
-========================= */
+/* OVERLAY */
 
 .overlay{
   position:fixed;
-
   inset:0;
-
-  background:rgba(0,0,0,.62);
-
-  z-index:60;
-
+  background:rgba(0,0,0,.65);
+  z-index:70;
   opacity:0;
-
   pointer-events:none;
-
-  transition:opacity .22s;
+  transition:opacity .2s
 }
 
 .overlay.show{
   opacity:1;
-
-  pointer-events:auto;
+  pointer-events:auto
 }
 
-.modal,
-.cartPanel{
+.sheet{
   position:absolute;
-
   left:50%;
   bottom:0;
 
-  transform:
-    translate(-50%,100%);
+  transform:translate(-50%,100%);
 
-  width:min(560px,100%);
-
-  max-height:90vh;
-
+  width:min(620px,100%);
+  max-height:92vh;
   overflow:auto;
 
-  background:white;
+  background:#fff;
 
-  border-radius:
-    18px 18px 0 0;
+  border-radius:18px 18px 0 0;
 
   transition:
     transform .28s
-    cubic-bezier(.2,.8,.2,1);
-
-  padding-bottom:18px;
+    cubic-bezier(.2,.8,.2,1)
 }
 
-.overlay.show .modal{
-  transform:
-    translate(-50%,0);
+.overlay.show .sheet{
+  transform:translate(-50%,0)
 }
 
-.overlay.cartMode .modal{
-  transform:
-    translate(-50%,100%);
+.sheet.cartMode .productView{
+  display:none
 }
 
-.overlay.cartMode .cartPanel{
-  transform:
-    translate(-50%,0);
+.sheet:not(.cartMode) .cartView{
+  display:none
 }
 
+/* PRODUCT MODAL */
 
-/* =========================
-   PRODUCTO
-========================= */
-
-.modalImg{
+.productView img.heroImg{
   width:100%;
-
-  aspect-ratio:1.25;
-
-  background:#111;
-
+  aspect-ratio:1.1;
   object-fit:cover;
+  background:#101512
 }
 
 .modalBody{
-  padding:18px;
+  padding:18px 16px 20px
 }
 
 .close{
   position:absolute;
-
-  right:16px;
-  top:15px;
+  right:14px;
+  top:14px;
 
   width:38px;
   height:38px;
 
   border:0;
-
   border-radius:50%;
 
-  background:rgba(0,0,0,.75);
-
-  color:white;
+  background:rgba(0,0,0,.78);
+  color:#fff;
 
   font-size:22px;
+  z-index:2
 }
 
-.modal h3{
+.modalBody h3{
   font-size:25px;
-
-  margin:0 0 7px;
+  line-height:1.05;
+  margin:0 0 8px
 }
 
 .stock{
-  color:#15936d;
-
+  color:#13936d;
   font-size:12px;
-
-  font-weight:800;
+  font-weight:900;
+  margin-bottom:16px
 }
 
-.modalPrice{
-  font-size:24px;
-
-  font-weight:1000;
-
-  margin:12px 0 18px;
-}
-
-.qtyBox{
+.qty{
   display:flex;
-
   align-items:center;
 
-  border:1px solid #cfd7d3;
+  border:1px solid #ccd5d0;
 
   width:max-content;
 
@@ -616,191 +475,137 @@ button{
 
   overflow:hidden;
 
-  margin-bottom:14px;
+  margin-bottom:14px
 }
 
-.qtyBox button{
+.qty button{
   width:46px;
   height:42px;
-
   border:0;
-
-  background:#f1f3f2;
-
-  font-size:20px;
+  background:#f0f3f1;
+  font-size:20px
 }
 
-.qtyNum{
+.qty span{
   width:52px;
-
   text-align:center;
-
-  font-weight:1000;
+  font-weight:1000
 }
 
 .confirm{
   width:100%;
-
   border:0;
-
-  background:var(--verde);
-
+  background:var(--g);
   padding:15px;
-
   border-radius:4px;
-
-  font-weight:1000;
+  font-weight:1000
 }
 
+/* CART */
 
-/* =========================
-   CARRITO
-========================= */
-
-.cartPanel{
-  padding:20px 16px;
+.cartView{
+  padding:18px 15px 20px
 }
 
-.cartTitle{
+.cartHead{
   display:flex;
-
   justify-content:space-between;
-
-  align-items:center;
+  align-items:center
 }
 
-.cartTitle h3{
+.cartHead h3{
   font-size:26px;
-
-  margin:0;
-}
-
-.x{
-  border:0;
-
-  background:none;
-
-  font-size:25px;
+  margin:0
 }
 
 .cartLine{
   display:grid;
-
-  grid-template-columns:
-    58px 1fr auto;
-
+  grid-template-columns:58px 1fr auto;
   gap:10px;
-
   align-items:center;
 
-  border-bottom:
-    1px solid #e2e6e4;
+  border-bottom:1px solid #e1e6e3;
 
-  padding:12px 0;
+  padding:11px 0
 }
 
 .cartLine img{
   width:58px;
   height:58px;
-
   object-fit:cover;
-
   border-radius:4px;
-
-  background:#111;
+  background:#111
 }
 
 .lineName{
-  font-size:13px;
-
-  font-weight:900;
+  font-size:12px;
+  font-weight:900
 }
 
 .lineCat{
-  font-size:10px;
-
-  color:#76807b;
-
-  margin-top:3px;
+  font-size:9px;
+  color:#77817b;
+  margin-top:3px
 }
 
 .miniQty{
   display:flex;
-
-  border:1px solid #d5dbd8;
-
+  border:1px solid #d3dad6;
   border-radius:4px;
-
-  overflow:hidden;
+  overflow:hidden
 }
 
 .miniQty button{
   border:0;
-
-  background:#f1f3f2;
-
+  background:#f0f3f1;
   width:27px;
-  height:29px;
+  height:29px
 }
 
 .miniQty span{
   width:28px;
-
   display:grid;
-
   place-items:center;
-
   font-size:11px;
-
-  font-weight:900;
-}
-
-.total{
-  display:flex;
-
-  justify-content:space-between;
-
-  font-size:21px;
-
-  font-weight:1000;
-
-  margin:20px 0;
+  font-weight:900
 }
 
 .wa{
   width:100%;
-
   border:0;
-
   background:#111;
-
-  color:white;
-
+  color:#fff;
   padding:16px;
-
   border-radius:4px;
-
   font-weight:1000;
+  margin-top:8px
 }
 
 .note{
   text-align:center;
-
   font-size:10px;
-
   color:#737b77;
-
-  margin-top:8px;
+  margin-top:8px
 }
 
+.empty{
+  grid-column:1/-1;
 
-/* =========================
-   ANIMACIÓN CARRITO
-========================= */
+  border:1px dashed #bac5bf;
+
+  padding:34px;
+
+  text-align:center;
+
+  color:#6d7771;
+
+  background:#fff
+}
+
+/* CART ANIMATION */
 
 .fly{
   position:fixed;
-
   z-index:100;
 
   width:18px;
@@ -808,12 +613,12 @@ button{
 
   border-radius:50%;
 
-  background:var(--verde);
+  background:var(--g);
 
   pointer-events:none;
 
   animation:
-    fly .55s ease-in forwards;
+    fly .55s ease-in forwards
 }
 
 @keyframes fly{
@@ -826,66 +631,48 @@ button{
       )
       scale(.15);
 
-    opacity:.2;
+    opacity:.15
   }
 
 }
 
-
-/* =========================
-   DESKTOP
-========================= */
+/* DESKTOP */
 
 @media(min-width:700px){
 
   .hero{
-    min-height:600px;
-
-    padding-left:8vw;
+    min-height:590px;
+    padding-left:8vw
   }
 
   .hero h1{
-    font-size:76px;
-  }
-
-  .wrap{
-    padding-left:30px;
-    padding-right:30px;
+    font-size:78px
   }
 
   .grid{
     grid-template-columns:
-      repeat(3,1fr);
+      repeat(4,1fr)
   }
 
-  .modal,
-  .cartPanel{
+  .sheet{
     bottom:18px;
-
-    border-radius:18px;
+    border-radius:18px
   }
 
 }
-
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     CABECERA
-========================= -->
 
 <header class="top">
 
 <button
   class="icon"
-  aria-label="Menú"
+  aria-label="Categorías"
   onclick="
     document
-      .getElementById('cats')
+      .getElementById('catalogo')
       .scrollIntoView({
         behavior:'smooth'
       })
@@ -894,66 +681,11 @@ button{
 ☰
 </button>
 
-
-<!-- LOGO -->
-
-<svg
+<img
   class="logo"
-  viewBox="0 0 160 160"
-  aria-label="La Familia CBD"
+  src="IMG_5681.png"
+  alt="La Familia CBD"
 >
-
-  <polygon
-    points="80,4 151,42 151,118 80,156 9,118 9,42"
-    fill="#19d69a"
-  />
-
-  <polygon
-    points="80,12 143,46 143,114 80,148 17,114 17,46"
-    fill="#07100b"
-  />
-
-  <path
-    d="
-    M80 86
-    C61 64 57 43 66 28
-    C76 40 80 58 80 86
-    C80 58 84 40 94 28
-    C103 43 99 64 80 86
-    C57 69 38 65 27 75
-    C39 88 58 91 80 86
-    C102 91 121 88 133 75
-    C122 65 103 69 80 86
-    "
-    fill="#19d69a"
-  />
-
-  <text
-    x="80"
-    y="111"
-    text-anchor="middle"
-    fill="#fff"
-    font-size="14"
-    font-weight="900"
-    font-family="Arial"
-  >
-    LA FAMILIA
-  </text>
-
-  <text
-    x="80"
-    y="134"
-    text-anchor="middle"
-    fill="#19d69a"
-    font-size="18"
-    font-weight="900"
-    font-family="Arial"
-  >
-    CBD
-  </text>
-
-</svg>
-
 
 <div class="actions">
 
@@ -961,12 +693,13 @@ button{
   class="icon"
   aria-label="Buscar"
   onclick="
-    alert('La búsqueda la añadimos después 🔎')
+    document
+      .getElementById('search')
+      .focus()
   "
 >
 ⌕
 </button>
-
 
 <button
   class="icon cartTop"
@@ -989,36 +722,28 @@ button{
 </header>
 
 
-
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
-<div class="heroContent">
+<div class="heroIn">
 
 <div class="kicker">
 CALIDAD · SELECCIÓN · ESTILO
 </div>
-
 
 <h1>
 LA FAMILIA
 <span>CBD</span>
 </h1>
 
-
 <p>
-PRODUCTOS · PARAFERNALIA · ESENCIAS · Y MÁS
+CATÁLOGO ONLINE · PARA TUS PEDIDOS DIRECTAMENTE POR WHATSAPP
 </p>
-
 
 <button
   class="cta"
   onclick="
     document
-      .getElementById('cats')
+      .getElementById('catalogo')
       .scrollIntoView({
         behavior:'smooth'
       })
@@ -1032,126 +757,10 @@ VER CATÁLOGO →
 </section>
 
 
-
-<!-- =========================
-     CONTENIDO
-========================= -->
-
-<main class="wrap">
-
-
-<!-- CATEGORÍAS -->
-
-<section id="cats">
-
-<div class="sectionHead">
-
-<h2>
-CATEGORÍAS
-</h2>
-
-</div>
-
-
-<div class="categories">
-
-
-<button
-  class="cat"
-  onclick="filterCat('Bandejas')"
+<main
+  class="wrap"
+  id="catalogo"
 >
-
-<div class="catImg">
-
-<img
-  src="IMG_5663.jpeg"
-  alt=""
->
-
-</div>
-
-<div class="catName">
-BANDEJAS
-</div>
-
-</button>
-
-
-
-<button
-  class="cat"
-  onclick="filterCat('Cremas')"
->
-
-<div class="catImg">
-
-<img
-  src="IMG_5662.jpeg"
-  alt=""
->
-
-</div>
-
-<div class="catName">
-CREMAS
-</div>
-
-</button>
-
-
-
-<button
-  class="cat"
-  onclick="filterCat('Parafernalia')"
->
-
-<div class="catImg">
-
-<img
-  src="IMG_5661.jpeg"
-  alt=""
->
-
-</div>
-
-<div class="catName">
-PARAFERNALIA
-</div>
-
-</button>
-
-
-
-<button
-  class="cat"
-  onclick="filterCat('Hash')"
->
-
-<div class="catImg">
-
-<img
-  src="IMG_5657.jpeg"
-  alt=""
->
-
-</div>
-
-<div class="catName">
-HASH
-</div>
-
-</button>
-
-
-</div>
-
-</section>
-
-
-
-<!-- PRODUCTOS -->
-
-<section>
 
 <div class="sectionHead">
 
@@ -1159,14 +768,31 @@ HASH
 PRODUCTOS
 </h2>
 
-
-<button
-  class="link"
-  onclick="filterCat('Todos')"
+<div
+  class="count"
+  id="count"
 >
-VER TODO →
-</button>
+</div>
 
+</div>
+
+
+<div class="search">
+
+<input
+  id="search"
+  type="search"
+  placeholder="Buscar producto..."
+  autocomplete="off"
+>
+
+</div>
+
+
+<div
+  class="cats"
+  id="cats"
+>
 </div>
 
 
@@ -1176,13 +802,8 @@ VER TODO →
 >
 </div>
 
-</section>
-
 </main>
 
-
-
-<!-- CARRITO FLOTANTE -->
 
 <button
   class="floating"
@@ -1202,258 +823,496 @@ VER TODO →
 </button>
 
 
-
-<!-- =========================
-     MODALES
-========================= -->
-
 <div
   class="overlay"
   id="overlay"
   onclick="backdrop(event)"
 >
 
+<div
+  class="sheet"
+  id="sheet"
+>
 
 <div
-  class="modal"
-  id="productModal"
+  class="productView"
+  id="productView"
 >
 </div>
 
-
 <div
-  class="cartPanel"
-  id="cartPanel"
+  class="cartView"
+  id="cartView"
 >
 </div>
 
-
 </div>
 
+</div>
 
 
 <script>
 
-
-/* =========================
-   WHATSAPP
-========================= */
-
 const WHATSAPP =
-"34600000000";
+"34722286751";
+
+const LOGO =
+"IMG_5681.png";
 
 
-/* =========================
-   PRODUCTOS
-========================= */
+const categories = [
+"Bandejas",
+"Cremas",
+"Grinders",
+"Accesorios",
+"Packs",
+"Papel y Tips",
+"Pipas y otros accesorios",
+"Vapers",
+"Clippers",
+"Hash",
+"Ceniceros"
+];
+
 
 const products = [
 
+/* BANDEJAS */
 
-{
-  name:"RAW Original · Transparente",
-  category:"Parafernalia",
-  image:"IMG_5663.jpeg"
-},
+{"name":"RAW Donuts","category":"Bandejas","image":"IMG_5646.jpeg"},
+{"name":"RAW Classic · rojo/amarillo/verde","category":"Bandejas","image":"IMG_5647.jpeg"},
+{"name":"RAW Classic Metal · plateado","category":"Bandejas","image":"IMG_5653.jpeg"},
+{"name":"RAW psicodélica · rosa/rojo","category":"Bandejas","image":"IMG_5654.jpeg"},
+{"name":"RAW Classic · rojo/amarillo/verde","category":"Bandejas","image":"IMG_5655.jpeg"},
+{"name":"Goody · negra · logo amarillo","category":"Bandejas","image":"IMG_5682.jpeg"},
+{"name":"RAW Black · negra · logo rojo","category":"Bandejas","image":"IMG_5683.jpeg"},
+{"name":"GOODY · dorada/marrón","category":"Bandejas","image":"IMG_5684.jpeg"},
+{"name":"GOODY · negra","category":"Bandejas","image":"IMG_5686.jpeg"},
+{"name":"RAW Classic · redonda","category":"Bandejas","image":"IMG_5687.jpeg"},
+{"name":"RAW Classic · verde/amarillo/rojo","category":"Bandejas","image":"IMG_5688.jpeg"},
+{"name":"Strawberry Banana","category":"Bandejas","image":"IMG_5689.jpeg"},
+{"name":"Hojas de cannabis · negra","category":"Bandejas","image":"IMG_5690.jpeg"},
+{"name":"Chocolate Skunk","category":"Bandejas","image":"IMG_5693.jpeg"},
+{"name":"Camaleón psicodélico","category":"Bandejas","image":"IMG_5694.jpeg"},
+{"name":"Best Buds · personaje fumando","category":"Bandejas","image":"IMG_5696.jpeg"},
+{"name":"RAW · chica con patines","category":"Bandejas","image":"IMG_5699.jpeg"},
+{"name":"RAW Challenge Cone","category":"Bandejas","image":"IMG_5700.jpeg"},
+{"name":"RAW Black · negra/roja","category":"Bandejas","image":"IMG_5701.jpeg"},
+{"name":"RAW Black · monstruo verde","category":"Bandejas","image":"IMG_5704.jpeg"},
+{"name":"RAW Black Classic · negra","category":"Bandejas","image":"IMG_5705.jpeg"},
+{"name":"RAW · diseño clásico","category":"Bandejas","image":"IMG_5706.jpeg"},
+{"name":"Gato rosa/azul · psicodélica","category":"Bandejas","image":"IMG_5710.jpeg"},
+{"name":"Osito azul con velas","category":"Bandejas","image":"IMG_5713.jpeg"},
+{"name":"Buho Papers · beige","category":"Bandejas","image":"IMG_5714.jpeg"},
+{"name":"Hoja de cannabis · verde/amarillo/rojo","category":"Bandejas","image":"IMG_5715.jpeg"},
+{"name":"Buho Papers · negra","category":"Bandejas","image":"IMG_5716.jpeg"},
+{"name":"RAW · personaje verde de un ojo","category":"Bandejas","image":"IMG_5729.jpeg"},
+{"name":"420 · hojas multicolor","category":"Bandejas","image":"IMG_5731.jpeg"},
+{"name":"RAW 20th Anniversary · verde","category":"Bandejas","image":"IMG_5732.jpeg"},
+{"name":"Camaleón 3D · Premium Wood","category":"Bandejas","image":"IMG_5733.jpeg"},
+{"name":"Gato DJ · galaxia","category":"Bandejas","image":"IMG_5734.jpeg"},
+{"name":"Bicicletas 1943","category":"Bandejas","image":"IMG_5735.jpeg"},
+{"name":"The Pope Smokes Dope","category":"Bandejas","image":"IMG_5736.jpeg"},
+{"name":"Hojas de colores · negra","category":"Bandejas","image":"IMG_5737.jpeg"},
+{"name":"Oso azul · velas","category":"Bandejas","image":"IMG_5738.jpeg"},
+{"name":"Mesa DJ · plato giradiscos","category":"Bandejas","image":"IMG_5739.jpeg"},
+{"name":"Hoja tricolor","category":"Bandejas","image":"IMG_5740.jpeg"},
+{"name":"Narcos · rosa","category":"Bandejas","image":"IMG_5741.jpeg"},
+{"name":"Narcos · rojo","category":"Bandejas","image":"IMG_5742.jpeg"},
+{"name":"Personaje verde psicodélico","category":"Bandejas","image":"IMG_5743.jpeg"},
+{"name":"Simply… · personaje verde","category":"Bandejas","image":"IMG_5744.jpeg"},
 
+/* CREMAS */
 
-{
-  name:"Cenicero · Amarillo",
-  category:"Parafernalia",
-  image:"IMG_5662.jpeg"
-},
+{"name":"Peptide + HA Facial Serum","category":"Cremas","image":"IMG_5747.jpeg"},
+{"name":"Restorative Cream","category":"Cremas","image":"IMG_5748.jpeg"},
+{"name":"Blemish Purity Cream","category":"Cremas","image":"IMG_5749.jpeg"},
+{"name":"Stop Hair Loss Elixir","category":"Cremas","image":"IMG_5750.jpeg"},
+{"name":"Hyaluronic Serum","category":"Cremas","image":"IMG_5751.jpeg"},
+{"name":"Anti-Aging Eye Contour Cream","category":"Cremas","image":"IMG_5752.jpeg"},
+{"name":"Light Moisture Facial Cream SPF 50+","category":"Cremas","image":"IMG_5753.jpeg"},
+{"name":"Anti-Aging Restorative Moisture Facial Cream","category":"Cremas","image":"IMG_5754.jpeg"},
+{"name":"Natural Lip Balm COCOA","category":"Cremas","image":"IMG_5755.jpeg"},
+{"name":"TATTOO Natural Balm","category":"Cremas","image":"IMG_5756.jpeg"},
+{"name":"Weedness Sport Gel · Warming","category":"Cremas","image":"IMG_5757.jpeg"},
+{"name":"Weedness Sport Gel · Cooling","category":"Cremas","image":"IMG_5758.jpeg"},
+{"name":"Weedness Pets · CBD Oil Bacon","category":"Cremas","image":"IMG_5759.jpeg"},
+{"name":"Weedness Pets · CBD Oil Salmon","category":"Cremas","image":"IMG_5760.jpeg"},
+{"name":"Canna-Tails · CBD Oil Equilibrio","category":"Cremas","image":"IMG_5761.jpeg"},
+{"name":"Canna-Tails · CBD Oil Calma","category":"Cremas","image":"IMG_5763.jpeg"},
+{"name":"CANNATIGER · CBD Balm","category":"Cremas","image":"IMG_5764.jpeg"},
+{"name":"Atopi Cream","category":"Cremas","image":"IMG_5765.jpeg"},
+{"name":"Dr. Bronner's · Patchouli-Lime Organic Body Lotion","category":"Cremas","image":"IMG_5766.jpeg"},
+{"name":"Weedness · Anti-Aging Cleansing Milk","category":"Cremas","image":"IMG_5767.jpeg"},
+{"name":"Palacio 3 in 1 Hemp Shower","category":"Cremas","image":"IMG_5768.jpeg"},
+{"name":"Palacio Cannabis Shower Cream Gel","category":"Cremas","image":"IMG_5769.jpeg"},
+{"name":"CBD Handmade Natural Soap · 100 mg CBD","category":"Cremas","image":"IMG_5770.jpeg"},
+{"name":"CBD Handmade Natural Soap","category":"Cremas","image":"IMG_5771.jpeg"},
 
+/* GRINDERS */
 
-{
-  name:"Cenicero · Verde",
-  category:"Parafernalia",
-  image:"IMG_5661.jpeg"
-},
+{"name":"SK8 Grinder · negro/verde","category":"Grinders","image":"IMG_5691.jpeg"},
+{"name":"RAW HammerCraft · pequeño","category":"Grinders","image":"IMG_5709.jpeg"},
+{"name":"RAW HammerCraft · mediano","category":"Grinders","image":"IMG_5711.jpeg"},
+{"name":"RAW HammerCraft · grande","category":"Grinders","image":"IMG_5773.jpeg"},
+{"name":"Grinder metálico · plateado","category":"Grinders","image":"IMG_5777.jpeg"},
+{"name":"Grinder negro · detalles dorados","category":"Grinders","image":"IMG_5778.jpeg"},
+{"name":"Grinder negro · detalles rojos","category":"Grinders","image":"IMG_5779.jpeg"},
+{"name":"Grinder Rainbow · multicolor","category":"Grinders","image":"IMG_5797.jpeg"},
+{"name":"Best Buds · Gorilla Glue","category":"Grinders","image":"IMG_5799.jpeg"},
+{"name":"Herb Grinder · 3 Parts","category":"Grinders","image":"IMG_5800.jpeg"},
+{"name":"Herb Grinder · negro · 3 Parts","category":"Grinders","image":"IMG_5802.jpeg"},
+{"name":"Monkey King · Acrylic Grinder · 3 Parts","category":"Grinders","image":"IMG_5803.jpeg"},
+{"name":"Grinder negro multifunción","category":"Grinders","image":"IMG_5836.jpeg"},
+{"name":"Best Buds · Compact · Ultra-Light Aluminium","category":"Grinders","image":"IMG_5837.jpeg"},
 
+/* ACCESORIOS */
 
-{
-  name:"Cenicero · Plateado",
-  category:"Parafernalia",
-  image:"IMG_5660.jpeg"
-},
+{"name":"We ❤️ Socks · negro/verde · 40–45","category":"Accesorios","image":"IMG_5786.jpeg"},
+{"name":"We ❤️ Socks · 420 negro/verde · 40–45","category":"Accesorios","image":"IMG_5787.jpeg"},
+{"name":"We ❤️ Socks · rosa/verde · 36–42","category":"Accesorios","image":"IMG_5788.jpeg"},
+{"name":"We ❤️ Socks · azul/multicolor · 36–42","category":"Accesorios","image":"IMG_5789.jpeg"},
+{"name":"We ❤️ Socks · negro/multicolor · 40–45","category":"Accesorios","image":"IMG_5791.jpeg"},
+{"name":"We ❤️ Socks · negro/gris/blanco · 40–45","category":"Accesorios","image":"IMG_5792.jpeg"},
+{"name":"We ❤️ Socks · verde/rosa · 36–42","category":"Accesorios","image":"IMG_5793.jpeg"},
+{"name":"We ❤️ Socks · blanco/verde · 36–42","category":"Accesorios","image":"IMG_5794.jpeg"},
+{"name":"Lanyard RAW Classic Rolling Papers","category":"Accesorios","image":"IMG_5806.jpeg"},
+{"name":"RAW Black Odor-Free Storage Bags · Medium","category":"Accesorios","image":"IMG_5784.jpeg"},
+{"name":"RAW Black Odor-Free Storage Bags · Large","category":"Accesorios","image":"IMG_5785.jpeg"},
+{"name":"RAW Classic Rolling Papers · bolsa beige","category":"Accesorios","image":"IMG_5783.jpeg"},
+{"name":"RAW Classic Rolling Papers · mochila negra","category":"Accesorios","image":"IMG_5805.jpeg"},
+{"name":"RAW Classic Cap · camuflaje","category":"Accesorios","image":"IMG_5692.jpeg"},
+{"name":"RAW Cap · negro","category":"Accesorios","image":null},
 
+/* PACKS */
 
-{
-  name:"Cenicero · Transparente",
-  category:"Parafernalia",
-  image:"IMG_5659.jpeg"
-},
+{"name":"Pack Munchies · Monkey King","category":"Packs","image":"IMG_5853.jpeg"},
+{"name":"Pack G-Rollz · Thug for Life","category":"Packs","image":"IMG_5821.jpeg"},
+{"name":"Pack CHAMP:HIGH · Pipe & Grinder","category":"Packs","image":null},
+{"name":"Pack CHAMP:HIGH · Travel Kit","category":"Packs","image":null},
+{"name":"Caja/Pack de almacenamiento · madera","category":"Packs","image":null},
+{"name":"Pack Smoking Set","category":"Packs","image":null},
+{"name":"Diamond Leaf · 5 Piece Set","category":"Packs","image":null},
 
+/* PAPEL Y TIPS */
 
-{
-  name:"RAW Original · Rojo",
-  category:"Parafernalia",
-  image:"IMG_5657.jpeg"
-},
+{"name":"Boho Rolling Papers · 1¼ Medium","category":"Papel y Tips","image":"IMG_5809.jpeg"},
+{"name":"BEUZ · Wide Rolling Tips · 25 mm","category":"Papel y Tips","image":"IMG_5810.jpeg"},
+{"name":"Diamond Leaf · King Size Slim","category":"Papel y Tips","image":"IMG_5811.jpeg"},
+{"name":"BEUZ · King Size Slim","category":"Papel y Tips","image":"IMG_5812.jpeg"},
+{"name":"RAW Classic · Kingsize Slim","category":"Papel y Tips","image":"IMG_5813.jpeg"},
+{"name":"RAW Classic Black · Connoisseur · Kingsize Slim","category":"Papel y Tips","image":"IMG_5826.jpeg"},
+{"name":"RAW Classic Black · Kingsize Slim","category":"Papel y Tips","image":"IMG_5827.jpeg"},
+{"name":"RAW Classic Black · Connoisseur 1¼ + Tips","category":"Papel y Tips","image":"IMG_5828.jpeg"},
+{"name":"RAW Tips · Original","category":"Papel y Tips","image":"IMG_5829.jpeg"},
+{"name":"Monkey King · Billionaire Gold","category":"Papel y Tips","image":"IMG_5830.jpeg"},
+{"name":"Elements Pink Papers · King Size Slim","category":"Papel y Tips","image":"IMG_5824.jpeg"},
+{"name":"Diamond Leaf Purple · King Size Slim","category":"Papel y Tips","image":"IMG_5823.jpeg"},
+{"name":"G-Rollz Orange Dream · 4 Hemp Wraps","category":"Papel y Tips","image":"IMG_5810.jpeg"},
+{"name":"G-Rollz Passion Haze · 4 Hemp Wraps","category":"Papel y Tips","image":"IMG_5812.jpeg"},
+{"name":"Cartel CBD · 130 mm · 32 sheets + 32 filters","category":"Papel y Tips","image":null},
+{"name":"G-Rollz Green Funk · 4 Hemp Wraps","category":"Papel y Tips","image":"IMG_5813.jpeg"},
+{"name":"RAW Rolls · 3 Meter Rolls","category":"Papel y Tips","image":"IMG_5831.jpeg"},
+{"name":"actiTube · activated charcoal filters · 8 mm","category":"Papel y Tips","image":"IMG_5746.jpeg"},
 
+/* PIPAS Y OTROS */
 
-{
-  name:"RAW Original · Multicolor",
-  category:"Parafernalia",
-  image:"IMG_5656.jpeg"
-}
+{"name":"Pipa de agua azul","category":"Pipas y otros accesorios","image":"IMG_5780.jpeg"},
+{"name":"Pipa de agua negra/blanca","category":"Pipas y otros accesorios","image":null},
+{"name":"Cenicero RAW de cristal","category":"Pipas y otros accesorios","image":null},
+{"name":"Pipa de agua búho amarilla","category":"Pipas y otros accesorios","image":"IMG_5852.jpeg"},
+{"name":"Cenicero metálico arcoíris","category":"Pipas y otros accesorios","image":null},
+{"name":"Vaso/pipa de cristal con tapa verde","category":"Pipas y otros accesorios","image":"IMG_5807.jpeg"},
+{"name":"Pipa de agua azul tipo bong","category":"Pipas y otros accesorios","image":"IMG_5850.jpeg"},
+{"name":"Colgante hoja de cannabis","category":"Pipas y otros accesorios","image":null},
+{"name":"Cenicero/calavera","category":"Pipas y otros accesorios","image":null},
+{"name":"Pipa unicornio","category":"Pipas y otros accesorios","image":null},
+{"name":"Grinder negro compacto","category":"Pipas y otros accesorios","image":"IMG_5802.jpeg"},
+{"name":"Pipa/tubo de cristal azul","category":"Pipas y otros accesorios","image":"IMG_5851.jpeg"},
+{"name":"King Palm · tubo de pre-roll","category":"Pipas y otros accesorios","image":"IMG_5854.jpeg"},
+{"name":"RAW 20th Anniversary · tubo verde","category":"Pipas y otros accesorios","image":null},
+{"name":"RAW Glass Tips · 6 × 35 mm","category":"Pipas y otros accesorios","image":"IMG_5814.jpeg"},
+{"name":"RAW Classic King Size · soporte para 6 conos","category":"Pipas y otros accesorios","image":null},
+{"name":"CHAMP:HIGH Travel Kit · pipa + accesorios","category":"Pipas y otros accesorios","image":"IMG_5856.jpeg"},
+{"name":"CHAMP:HIGH · pipa verde + grinder","category":"Pipas y otros accesorios","image":"IMG_5855.jpeg"},
+{"name":"RAW Slow Burning Papers · soporte negro","category":"Pipas y otros accesorios","image":"IMG_5856.jpeg"},
+{"name":"Pipa de cerámica blanca · detalle dorado","category":"Pipas y otros accesorios","image":"IMG_5698.jpeg"},
 
+/* VAPERS */
+
+{"name":"Iguana Smoke · Amnesia · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5858.jpeg"},
+{"name":"Iguana Smoke · Strawberry · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5859.jpeg"},
+{"name":"Iguana Smoke · Gorilla Glue · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5860.jpeg"},
+{"name":"Iguana Smoke · Mango · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5861.jpeg"},
+{"name":"Iguana Smoke · Gelato · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5857.jpeg"},
+{"name":"Iguana Smoke · Red Berries · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5862.jpeg"},
+
+/* CLIPPERS */
+
+{"name":"Clippers RAW · pack de 8","category":"Clippers","image":"IMG_5848.jpeg"},
+{"name":"Clippers Clipper Reusable · multicolor","category":"Clippers","image":"IMG_5844.jpeg"},
+{"name":"Clippers Clásicos · diseños","category":"Clippers","image":"IMG_5843.jpeg"},
+{"name":"Clippers PROF · hojas de colores","category":"Clippers","image":"IMG_5845.jpeg"},
+{"name":"Clippers Clipper · frases","category":"Clippers","image":"IMG_5846.jpeg"},
+{"name":"Clippers PROF · rojo con estrellas","category":"Clippers","image":"IMG_5842.jpeg"},
+{"name":"Clippers PROF Color · hojas de colores","category":"Clippers","image":"IMG_5847.jpeg"},
+
+/* HASH */
+
+{"name":"Bellota","category":"Hash","image":null},
+{"name":"Snow","category":"Hash","image":null},
+{"name":"Gold Cream","category":"Hash","image":null},
+{"name":"Brownie","category":"Hash","image":null},
+{"name":"Blondy","category":"Hash","image":null},
+{"name":"Caramello","category":"Hash","image":null},
+{"name":"Black Mamba","category":"Hash","image":null},
+
+/* CENICEROS */
+
+{"name":"RAW Original · Transparente","category":"Ceniceros","image":"IMG_5663.jpeg"},
+{"name":"Cenicero · Amarillo","category":"Ceniceros","image":"IMG_5662.jpeg"},
+{"name":"Cenicero · Verde","category":"Ceniceros","image":"IMG_5661.jpeg"},
+{"name":"Cenicero · Plateado","category":"Ceniceros","image":"IMG_5660.jpeg"},
+{"name":"Cenicero · Transparente","category":"Ceniceros","image":"IMG_5659.jpeg"},
+{"name":"RAW Original · Rojo","category":"Ceniceros","image":"IMG_5657.jpeg"},
+{"name":"RAW Original · Multicolor","category":"Ceniceros","image":"IMG_5656.jpeg"},
+{"name":"RAW Black · rojo/negro","category":"Ceniceros","image":"IMG_5703.jpeg"}
 
 ];
 
 
-let selected = "Todos";
+let selected="Todos";
+let cart=[];
+let current=null;
+let query="";
 
-let cart = [];
-
-let current = null;
-
-
-
-/* =========================
-   MOSTRAR PRODUCTOS
-========================= */
-
-function render(){
-
-  const list =
-    selected === "Todos"
-      ? products
-      : products.filter(
-          p => p.category === selected
-        );
+const soldOut=new Set();
 
 
-  const container =
-    document.getElementById("products");
+function safe(s){
 
-
-  if(!list.length){
-
-    container.innerHTML = `
-      <div class="empty">
-        Esta categoría está preparada
-        para recibir productos.
-        Próximamente 🔥
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    list.map(p => `
-
-      <article
-        class="card"
-        onclick="
-          openProductByName('${p.name.replace(/'/g,"\\'")}')
-        "
-      >
-
-        <div class="photo">
-
-          <img
-            src="${p.image}"
-            alt="${p.name}"
-            loading="lazy"
-          >
-
-        </div>
-
-
-        <div class="info">
-
-          <div class="name">
-            ${p.name}
-          </div>
-
-
-          <div class="available">
-            ● Disponible
-          </div>
-
-
-          <div class="priceRow">
-
-            <div class="price">
-              Consultar
-            </div>
-
-
-            <button
-              class="add"
-              onclick="
-                event.stopPropagation();
-
-                openProductByName(
-                  '${p.name.replace(/'/g,"\\'")}'
-                )
-              "
-            >
-              AÑADIR
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-    `).join("");
+  return String(s).replace(
+    /[&<>"']/g,
+    m=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[m])
+  )
 
 }
 
 
+function imageHTML(p){
 
-/* =========================
-   FILTRAR CATEGORÍA
-========================= */
+  if(!p.image){
 
-function filterCat(category){
+    return `
+      <div class="noPhoto">
+        FOTO PENDIENTE
+      </div>
+    `;
 
-  selected = category;
+  }
+
+  return `
+    <img
+      src="${safe(p.image)}"
+      alt="${safe(p.name)}"
+      loading="lazy"
+    >
+  `;
+
+}
+
+
+function isAvailable(p){
+
+  return !soldOut.has(p.name);
+
+}
+
+
+function renderCats(){
+
+  const el=document.getElementById("cats");
+
+  el.innerHTML=`
+
+    <button
+      class="cat ${selected==="Todos"?"active":""}"
+      onclick="filterCat('Todos')"
+    >
+      TODOS
+    </button>
+
+  `+
+
+  categories.map(c=>`
+
+    <button
+      class="cat ${selected===c?"active":""}"
+      onclick='filterCat(${JSON.stringify(c)})'
+    >
+      ${safe(c.toUpperCase())}
+    </button>
+
+  `).join("");
+
+}
+
+
+function render(){
+
+  renderCats();
+
+  const list=
+    products.filter(
+      p=>
+        (selected==="Todos" || p.category===selected)
+        &&
+        (
+          !query ||
+          p.name
+            .toLowerCase()
+            .includes(query.toLowerCase())
+        )
+    );
+
+
+  document.getElementById("count")
+    .textContent=
+      list.length+" productos";
+
+
+  document.getElementById("products")
+    .innerHTML=
+
+    list.length
+
+    ?
+
+    list.map(p=>{
+
+      const av=isAvailable(p);
+      const index=products.indexOf(p);
+
+      return `
+
+        <article
+          class="card"
+          onclick="openProduct(${index})"
+        >
+
+          <div class="photo">
+
+            ${imageHTML(p)}
+
+          </div>
+
+
+          <div class="info">
+
+            <div class="name">
+              ${safe(p.name)}
+            </div>
+
+
+            <div
+              class="available ${av?"":"off"}"
+            >
+              ● ${av?"Disponible":"Agotado"}
+            </div>
+
+
+            <div class="priceRow">
+
+              <button
+                class="add ${av?"":"off"}"
+                ${av?"":"disabled"}
+                onclick="
+                  event.stopPropagation();
+                  ${av?`quickAdd(${index})`:""}
+                "
+              >
+                ${av?"AÑADIR":"AGOTADO"}
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join("")
+
+    :
+
+    `
+
+      <div class="empty">
+        No encontramos productos con esa búsqueda.
+      </div>
+
+    `;
+
+}
+
+
+function filterCat(c){
+
+  selected=c;
 
   render();
 
   document
-    .getElementById("products")
+    .getElementById("catalogo")
     .scrollIntoView({
-      behavior:"smooth"
+      behavior:"smooth",
+      block:"start"
     });
 
 }
 
 
-
-/* =========================
-   ABRIR PRODUCTO
-========================= */
-
-function openProductByName(name){
-
-  const product =
-    products.find(
-      p => p.name === name
-    );
+document
+  .getElementById("search")
+  .addEventListener(
+    "input",
+    e=>{
+      query=e.target.value;
+      render();
+    }
+  );
 
 
-  if(!product){
+function openProduct(i){
+
+  const p=products[i];
+
+  if(
+    !p ||
+    !isAvailable(p)
+  ){
+
     return;
+
   }
 
 
-  current = {
-    ...product,
+  current={
+    ...p,
     qty:1
   };
 
 
   document
-    .getElementById("productModal")
-    .innerHTML = `
+    .getElementById("productView")
+    .innerHTML=`
 
       <button
         class="close"
@@ -1462,18 +1321,38 @@ function openProductByName(name){
         ×
       </button>
 
+      ${
+        p.image
 
-      <img
-        class="modalImg"
-        src="${product.image}"
-        alt="${product.name}"
-      >
+        ?
+
+        `
+          <img
+            class="heroImg"
+            src="${safe(p.image)}"
+            alt="${safe(p.name)}"
+          >
+        `
+
+        :
+
+        `
+          <div
+            class="photo"
+            style="aspect-ratio:1.1"
+          >
+            <div class="noPhoto">
+              FOTO PENDIENTE
+            </div>
+          </div>
+        `
+      }
 
 
       <div class="modalBody">
 
         <h3>
-          ${product.name}
+          ${safe(p.name)}
         </h3>
 
 
@@ -1482,30 +1361,22 @@ function openProductByName(name){
         </div>
 
 
-        <div class="modalPrice">
-          Consultar
-        </div>
-
-
-        <div class="qtyBox">
+        <div class="qty">
 
           <button
-            onclick="changeModal(-1)"
+            onclick="changeQty(-1)"
           >
             −
           </button>
 
 
-          <div
-            class="qtyNum"
-            id="modalQty"
-          >
+          <span id="modalQty">
             1
-          </div>
+          </span>
 
 
           <button
-            onclick="changeModal(1)"
+            onclick="changeQty(1)"
           >
             +
           </button>
@@ -1526,344 +1397,303 @@ function openProductByName(name){
 
 
   document
-    .getElementById("overlay")
-    .classList.add("show");
+    .getElementById("sheet")
+    .classList.remove("cartMode");
 
 
   document
     .getElementById("overlay")
-    .classList.remove("cartMode");
+    .classList.add("show");
 
 }
 
 
+function quickAdd(i){
 
-/* =========================
-   CANTIDAD
-========================= */
+  current={
+    ...products[i],
+    qty:1
+  };
 
-function changeModal(number){
+  confirmAdd();
 
-  current.qty =
+}
+
+
+function changeQty(n){
+
+  current.qty=
     Math.max(
       1,
-      current.qty + number
+      current.qty+n
     );
 
 
   document
     .getElementById("modalQty")
-    .textContent =
+    .textContent=
       current.qty;
 
 }
 
 
-
-/* =========================
-   AÑADIR AL CARRITO
-========================= */
-
 function confirmAdd(){
 
-  for(
-    let i = 0;
-    i < current.qty;
-    i++
-  ){
+  if(!current){
+    return;
+  }
 
-    addItem(current);
+
+  const ex=
+    cart.find(
+      x=>x.name===current.name
+    );
+
+
+  if(ex){
+
+    ex.qty+=current.qty;
+
+  }else{
+
+    cart.push({
+
+      name:current.name,
+
+      category:current.category,
+
+      image:current.image,
+
+      qty:current.qty
+
+    });
 
   }
 
 
-  flyToCart();
+  updateCount();
+
+  fly();
 
   closeOverlay();
 
 }
 
 
+function fly(){
 
-/* =========================
-   AÑADIR PRODUCTO
-========================= */
-
-function addItem(product){
-
-  const existing =
-    cart.find(
-      item =>
-        item.name === product.name
-    );
-
-
-  if(existing){
-
-    existing.qty++;
-
-  }else{
-
-    cart.push({
-
-      name:product.name,
-
-      category:product.category,
-
-      image:product.image,
-
-      qty:1
-
-    });
-
-  }
-
-}
-
-
-
-/* =========================
-   ANIMACIÓN
-========================= */
-
-function flyToCart(){
-
-  const dot =
+  const d=
     document.createElement("div");
 
+  d.className="fly";
 
-  dot.className =
-    "fly";
+  d.style.left="50%";
 
+  d.style.top="65%";
 
-  dot.style.left =
-    "50%";
-
-
-  dot.style.top =
-    "65%";
-
-
-  document.body.appendChild(dot);
+  document
+    .body
+    .appendChild(d);
 
 
   setTimeout(
-    () => dot.remove(),
+    ()=>d.remove(),
     600
   );
-
-
-  updateCount();
 
 }
 
 
-
-/* =========================
-   CONTADOR
-========================= */
-
 function updateCount(){
 
-  const total =
+  const n=
     cart.reduce(
-      (sum,item) =>
-        sum + item.qty,
+      (s,x)=>s+x.qty,
       0
     );
 
 
   document
     .getElementById("topCount")
-    .textContent =
-      total;
+    .textContent=n;
 
 
   document
     .getElementById("floatCount")
-    .textContent =
-      total;
+    .textContent=n;
 
 }
 
-
-
-/* =========================
-   ABRIR CARRITO
-========================= */
 
 function openCart(){
 
   renderCart();
 
+  document
+    .getElementById("sheet")
+    .classList.add("cartMode");
 
   document
     .getElementById("overlay")
-    .classList.add(
-      "show",
-      "cartMode"
-    );
+    .classList.add("show");
 
 }
 
 
-
-/* =========================
-   MOSTRAR CARRITO
-========================= */
-
 function renderCart(){
 
-  const panel =
-    document.getElementById(
-      "cartPanel"
-    );
-
-
-  const total =
+  const total=
     cart.reduce(
-      (sum,item) =>
-        sum + item.qty,
+      (s,x)=>s+x.qty,
       0
     );
 
 
-  panel.innerHTML = `
+  document
+    .getElementById("cartView")
+    .innerHTML=`
 
-    <div class="cartTitle">
+      <div class="cartHead">
 
-      <h3>
-        CARRITO (${total})
-      </h3>
+        <h3>
+          CARRITO (${total})
+        </h3>
+
+
+        <button
+          class="icon"
+          style="color:#111"
+          onclick="closeOverlay()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      ${
+        cart.length
+
+        ?
+
+        cart.map(
+          (x,i)=>`
+
+            <div class="cartLine">
+
+              ${
+                x.image
+
+                ?
+
+                `
+                  <img
+                    src="${safe(x.image)}"
+                    alt=""
+                  >
+                `
+
+                :
+
+                `
+                  <div
+                    class="photo"
+                    style="
+                      width:58px;
+                      height:58px
+                    "
+                  >
+                    <div class="noPhoto">
+                      —
+                    </div>
+                  </div>
+                `
+              }
+
+
+              <div>
+
+                <div class="lineName">
+                  ${safe(x.name)}
+                </div>
+
+
+                <div class="lineCat">
+                  ${safe(x.category)}
+                </div>
+
+              </div>
+
+
+              <div class="miniQty">
+
+                <button
+                  onclick="qty(${i},-1)"
+                >
+                  −
+                </button>
+
+
+                <span>
+                  ${x.qty}
+                </span>
+
+
+                <button
+                  onclick="qty(${i},1)"
+                >
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+          `
+        ).join("")
+
+        :
+
+        `
+          <div
+            class="empty"
+            style="margin-top:20px"
+          >
+            Tu pedido está vacío.
+          </div>
+        `
+      }
 
 
       <button
-        class="x"
-        onclick="closeOverlay()"
+        class="wa"
+        onclick="orderWhatsApp()"
+        ${cart.length?"":"disabled"}
       >
-        ×
+        PEDIR POR WHATSAPP →
       </button>
 
-    </div>
 
+      <div class="note">
+        WhatsApp abrirá el pedido preparado
+        para que lo revises y lo envíes.
+      </div>
 
-    ${
-      cart.length
-
-      ?
-
-      cart.map(
-        (item,index) => `
-
-          <div class="cartLine">
-
-            <img
-              src="${item.image}"
-              alt=""
-            >
-
-
-            <div>
-
-              <div class="lineName">
-                ${item.name}
-              </div>
-
-
-              <div class="lineCat">
-                ${item.category}
-              </div>
-
-            </div>
-
-
-            <div class="miniQty">
-
-              <button
-                onclick="
-                  qty(${index},-1)
-                "
-              >
-                −
-              </button>
-
-
-              <span>
-                ${item.qty}
-              </span>
-
-
-              <button
-                onclick="
-                  qty(${index},1)
-                "
-              >
-                +
-              </button>
-
-            </div>
-
-          </div>
-
-        `
-      ).join("")
-
-      :
-
-      `
-        <div class="empty">
-          Tu pedido está vacío.
-        </div>
-      `
-
-    }
-
-
-    <div class="total">
-
-      <span>
-        TOTAL
-      </span>
-
-
-      <span>
-        Consultar
-      </span>
-
-    </div>
-
-
-    <button
-      class="wa"
-      onclick="orderWhatsApp()"
-    >
-      PEDIR POR WHATSAPP →
-    </button>
-
-
-    <div class="note">
-      Se abrirá WhatsApp con tu pedido
-      preparado para enviar.
-    </div>
-
-  `;
+    `;
 
 }
 
 
+function qty(i,n){
 
-/* =========================
-   CAMBIAR CANTIDAD CARRITO
-========================= */
-
-function qty(index,number){
-
-  cart[index].qty += number;
+  cart[i].qty+=n;
 
 
-  if(cart[index].qty <= 0){
+  if(
+    cart[i].qty<=0
+  ){
 
-    cart.splice(index,1);
+    cart.splice(i,1);
 
   }
 
@@ -1874,11 +1704,6 @@ function qty(index,number){
 
 }
 
-
-
-/* =========================
-   PEDIDO WHATSAPP
-========================= */
 
 function orderWhatsApp(){
 
@@ -1887,58 +1712,52 @@ function orderWhatsApp(){
   }
 
 
-  const message =
-    "Hola, quiero hacer un pedido:\n" +
+  const msg=
 
-    cart.map(
-      item =>
-        "• " +
-        item.name +
-        " (" +
-        item.category +
-        ") × " +
-        item.qty
-    ).join("\n") +
+    "Hola, quiero hacer un pedido:\n\n"+
 
-    "\nGracias 🙏";
+    cart
+      .map(
+        x=>
+          "• "+
+          x.name+
+          " ("+
+          x.category+
+          ") × "+
+          x.qty
+      )
+      .join("\n")+
+
+    "\n\nGracias 🙏";
 
 
-  window.open(
+  window.location.href=
 
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    encodeURIComponent(message),
-
-    "_blank"
-
-  );
+    "https://wa.me/"+
+    WHATSAPP+
+    "?text="+
+    encodeURIComponent(msg);
 
 }
 
-
-
-/* =========================
-   CERRAR
-========================= */
 
 function closeOverlay(){
 
   document
     .getElementById("overlay")
-    .classList.remove(
-      "show",
-      "cartMode"
-    );
+    .classList.remove("show");
+
+  document
+    .getElementById("sheet")
+    .classList.remove("cartMode");
 
 }
 
 
-function backdrop(event){
+function backdrop(e){
 
   if(
-    event.target.id ===
-    "overlay"
+    e.target.id==="overlay"
   ){
 
     closeOverlay();
@@ -1947,11 +1766,6 @@ function backdrop(event){
 
 }
 
-
-
-/* =========================
-   INICIO
-========================= */
 
 render();
 

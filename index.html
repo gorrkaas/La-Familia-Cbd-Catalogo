@@ -1,1776 +1,1026 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#07100b">
-
-<title>La Familia CBD · Catálogo</title>
+<title>LA FAMILIA CBD · Catálogo</title>
 
 <style>
-*{box-sizing:border-box}
-
 :root{
-  --g:#18d59a;
-  --g2:#0da978;
-  --k:#050806;
-  --w:#fff;
-  --mut:#6c756f;
-  --line:#dfe5e1
+  --g:#19d39a;
+  --g2:#0ca875;
+  --black:#050806;
+  --ink:#0b0e0c;
+  --paper:#f3f5f3;
+  --line:#dce3de;
+  --muted:#69736d;
 }
-
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-
 body{
   margin:0;
-  background:#f5f6f5;
-  color:#0b0f0d;
+  background:var(--paper);
+  color:var(--ink);
   font-family:Arial,Helvetica,sans-serif
 }
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 
-button,input{
-  font:inherit
-}
-
-button{
-  cursor:pointer
-}
-
-/* HEADER */
-
-.top{
+.header{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(5,8,6,.97);
+  background:rgba(5,8,6,.94);
+  backdrop-filter:blur(14px);
   color:#fff;
-  border-bottom:1px solid #26312b;
-  padding:8px 12px;
-  display:grid;
-  grid-template-columns:44px 1fr 88px;
-  align-items:center
+  border-bottom:1px solid rgba(255,255,255,.08)
 }
-
-.icon{
-  width:42px;
-  height:42px;
-  border:0;
-  background:none;
-  color:#fff;
-  font-size:23px;
-  display:grid;
-  place-items:center
-}
-
-.logo{
-  width:74px;
-  height:58px;
-  object-fit:contain;
-  justify-self:center
-}
-
-.actions{
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:74px;
+  padding:10px 18px;
   display:flex;
-  justify-content:flex-end;
-  gap:2px
+  align-items:center;
+  justify-content:space-between;
+  gap:14px
 }
-
-.cartTop{
-  position:relative
+.logo{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  flex:none
 }
-
-.badge{
-  position:absolute;
-  right:-1px;
-  top:-1px;
-  min-width:19px;
-  height:19px;
-  padding:0 5px;
-  border-radius:20px;
-  background:var(--g);
-  color:#03110b;
-  font-size:10px;
-  font-weight:900;
-  display:grid;
-  place-items:center
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0
 }
-
-/* HERO */
+.brand strong{
+  font-size:14px;
+  letter-spacing:2px;
+  white-space:nowrap
+}
+.cartBtn{
+  border:1px solid rgba(255,255,255,.18);
+  background:#101712;
+  color:#fff;
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:800
+}
+.cartBtn span{
+  color:var(--g);
+  margin-left:4px
+}
 
 .hero{
-  min-height:480px;
-
   background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.1),
-      rgba(0,0,0,.88)
-    ),
-    radial-gradient(
-      circle at 75% 35%,
-      #176346 0,
-      #07110c 48%,
-      #020403 100%
-    );
-
+    radial-gradient(circle at 80% 15%,rgba(25,211,154,.22),transparent 35%),
+    linear-gradient(135deg,#050806,#0d1711);
   color:#fff;
-
-  padding:70px 22px 36px;
-
-  display:flex;
-  align-items:flex-end;
-
-  position:relative;
-  overflow:hidden
+  padding:42px 18px 34px
 }
-
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  background:
-    repeating-linear-gradient(
-      125deg,
-      transparent 0 34px,
-      rgba(24,213,154,.04) 35px 36px
-    )
+.heroInner{
+  max-width:1200px;
+  margin:auto
 }
-
-.heroIn{
-  position:relative;
-  z-index:1
-}
-
 .kicker{
-  font-size:10px;
-  letter-spacing:4px;
-  font-weight:900;
-  color:#b9c4be;
-  margin-bottom:15px
-}
-
-.hero h1{
-  font-size:54px;
-  line-height:.86;
-  margin:0 0 18px;
-  font-weight:1000;
-  letter-spacing:-3px
-}
-
-.hero h1 span{
-  display:block;
   color:var(--g);
-  font-style:italic
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase
 }
-
+.hero h1{
+  margin:10px 0 8px;
+  font-size:clamp(38px,8vw,76px);
+  line-height:.9;
+  letter-spacing:-3px;
+  text-transform:uppercase
+}
 .hero p{
-  font-size:12px;
-  line-height:1.5;
-  color:#dce2df;
-  max-width:330px;
-  margin:0 0 22px
-}
-
-.cta{
-  border:0;
-  background:var(--g);
-  color:#03120c;
-  padding:14px 20px;
-  border-radius:3px;
-  font-size:12px;
-  font-weight:1000
-}
-
-/* CONTENT */
-
-.wrap{
-  max-width:1180px;
-  margin:auto;
-  padding:24px 14px 110px
-}
-
-.sectionHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin:8px 0 14px
-}
-
-.sectionHead h2{
-  font-size:29px;
-  line-height:1;
+  max-width:620px;
+  color:#aeb9b2;
   margin:0;
-  font-weight:1000;
-  letter-spacing:-1px
+  line-height:1.5
 }
 
+.tools{
+  max-width:1200px;
+  margin:auto;
+  padding:18px
+}
 .search{
+  width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:15px;
+  padding:14px 16px;
+  outline:none
+}
+.categories{
   display:flex;
   gap:8px;
-  margin:0 0 18px
-}
-
-.search input{
-  width:100%;
-  border:1px solid #ccd5d0;
-  background:#fff;
-  border-radius:4px;
-  padding:13px 14px;
-  outline:none;
-  font-size:13px
-}
-
-.search input:focus{
-  border-color:var(--g2)
-}
-
-/* CATEGORIES */
-
-.cats{
-  display:flex;
-  gap:7px;
   overflow:auto;
-  padding:2px 1px 9px;
-  margin-bottom:24px;
+  padding:14px 0 4px;
   scrollbar-width:none
 }
-
-.cats::-webkit-scrollbar{
-  display:none
-}
-
+.categories::-webkit-scrollbar{display:none}
 .cat{
-  white-space:nowrap;
-  border:1px solid #cdd6d1;
+  flex:none;
+  border:1px solid var(--line);
   background:#fff;
   border-radius:999px;
   padding:9px 13px;
-  font-size:10px;
-  font-weight:1000
-}
-
-.cat.active{
-  background:var(--k);
-  color:#fff;
-  border-color:var(--k)
-}
-
-.count{
-  font-size:10px;
-  color:var(--mut);
+  font-size:12px;
   font-weight:800
 }
+.cat.active{
+  background:var(--black);
+  color:#fff;
+  border-color:var(--black)
+}
 
-/* PRODUCTS */
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:0 18px 110px
+}
+.section{
+  margin-top:28px
+}
+.sectionHead{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:13px
+}
+.sectionHead h2{
+  margin:0;
+  font-size:22px;
+  letter-spacing:-.7px
+}
+.sectionHead small{
+  color:var(--muted);
+  font-weight:700
+}
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px
+  gap:10px
 }
-
 .card{
+  position:relative;
   background:#fff;
   border:1px solid var(--line);
-  border-radius:5px;
+  border-radius:17px;
   overflow:hidden;
-  transition:transform .18s
+  min-width:0;
+  transition:.18s transform,.18s box-shadow
 }
-
-.card:active{
-  transform:scale(.985)
-}
-
+.card:active{transform:scale(.985)}
 .photo{
   aspect-ratio:1/1;
-  background:#101512;
-  overflow:hidden;
-  display:grid;
-  place-items:center
+  background:#e8ede9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden
 }
-
 .photo img{
   width:100%;
   height:100%;
-  object-fit:cover;
-  display:block
+  object-fit:cover
 }
-
-.noPhoto{
-  color:#8c9891;
-  font-size:9px;
-  letter-spacing:1px;
-  font-weight:900;
+.pending{
+  color:#87928c;
+  font-size:11px;
   text-align:center;
-  padding:15px
+  padding:20px
 }
-
 .info{
-  padding:10px 9px 11px
+  padding:11px
 }
-
-.name{
+.ref{
   font-size:13px;
-  line-height:1.12;
-  font-weight:1000;
-  min-height:31px
+  font-weight:950;
+  letter-spacing:.2px
 }
-
 .available{
-  font-size:10px;
-  color:#13936d;
-  margin:6px 0 9px;
-  font-weight:900
-}
-
-.available.off{
-  color:#8b3f3f
-}
-
-.priceRow{
   display:flex;
-  justify-content:flex-end
-}
-
-.add{
-  border:0;
-  background:var(--g);
-  color:#04130d;
-  font-weight:1000;
+  align-items:center;
+  gap:5px;
+  margin-top:6px;
+  color:#17774f;
   font-size:10px;
-  padding:9px 11px;
-  border-radius:3px
-}
-
-.add.off{
-  background:#dfe4e1;
-  color:#707872
-}
-
-/* FLOATING CART */
-
-.floating{
-  position:fixed;
-  right:17px;
-  bottom:19px;
-  z-index:45;
-  width:60px;
-  height:60px;
-  border:0;
-  border-radius:50%;
-  background:var(--g);
-  color:#03120c;
-  box-shadow:0 12px 35px rgba(0,0,0,.3);
-  font-size:23px
-}
-
-.floating .badge{
-  right:0;
-  top:-2px
-}
-
-/* OVERLAY */
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:70;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .2s
-}
-
-.overlay.show{
-  opacity:1;
-  pointer-events:auto
-}
-
-.sheet{
-  position:absolute;
-  left:50%;
-  bottom:0;
-
-  transform:translate(-50%,100%);
-
-  width:min(620px,100%);
-  max-height:92vh;
-  overflow:auto;
-
-  background:#fff;
-
-  border-radius:18px 18px 0 0;
-
-  transition:
-    transform .28s
-    cubic-bezier(.2,.8,.2,1)
-}
-
-.overlay.show .sheet{
-  transform:translate(-50%,0)
-}
-
-.sheet.cartMode .productView{
-  display:none
-}
-
-.sheet:not(.cartMode) .cartView{
-  display:none
-}
-
-/* PRODUCT MODAL */
-
-.productView img.heroImg{
-  width:100%;
-  aspect-ratio:1.1;
-  object-fit:cover;
-  background:#101512
-}
-
-.modalBody{
-  padding:18px 16px 20px
-}
-
-.close{
-  position:absolute;
-  right:14px;
-  top:14px;
-
-  width:38px;
-  height:38px;
-
-  border:0;
-  border-radius:50%;
-
-  background:rgba(0,0,0,.78);
-  color:#fff;
-
-  font-size:22px;
-  z-index:2
-}
-
-.modalBody h3{
-  font-size:25px;
-  line-height:1.05;
-  margin:0 0 8px
-}
-
-.stock{
-  color:#13936d;
-  font-size:12px;
   font-weight:900;
-  margin-bottom:16px
+  text-transform:uppercase
 }
-
-.qty{
-  display:flex;
-  align-items:center;
-
-  border:1px solid #ccd5d0;
-
-  width:max-content;
-
-  border-radius:5px;
-
-  overflow:hidden;
-
-  margin-bottom:14px
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#20c879
 }
-
-.qty button{
-  width:46px;
-  height:42px;
-  border:0;
-  background:#f0f3f1;
-  font-size:20px
-}
-
-.qty span{
-  width:52px;
-  text-align:center;
-  font-weight:1000
-}
-
-.confirm{
+.add{
+  margin-top:10px;
   width:100%;
   border:0;
-  background:var(--g);
-  padding:15px;
-  border-radius:4px;
-  font-weight:1000
-}
-
-/* CART */
-
-.cartView{
-  padding:18px 15px 20px
-}
-
-.cartHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center
-}
-
-.cartHead h3{
-  font-size:26px;
-  margin:0
-}
-
-.cartLine{
-  display:grid;
-  grid-template-columns:58px 1fr auto;
-  gap:10px;
-  align-items:center;
-
-  border-bottom:1px solid #e1e6e3;
-
-  padding:11px 0
-}
-
-.cartLine img{
-  width:58px;
-  height:58px;
-  object-fit:cover;
-  border-radius:4px;
-  background:#111
-}
-
-.lineName{
-  font-size:12px;
-  font-weight:900
-}
-
-.lineCat{
-  font-size:9px;
-  color:#77817b;
-  margin-top:3px
-}
-
-.miniQty{
-  display:flex;
-  border:1px solid #d3dad6;
-  border-radius:4px;
-  overflow:hidden
-}
-
-.miniQty button{
-  border:0;
-  background:#f0f3f1;
-  width:27px;
-  height:29px
-}
-
-.miniQty span{
-  width:28px;
-  display:grid;
-  place-items:center;
+  background:var(--black);
+  color:#fff;
+  border-radius:11px;
+  padding:10px 8px;
   font-size:11px;
   font-weight:900
 }
+.add:hover{background:var(--g2)}
+.add.disabled{
+  background:#d5dbd7;
+  color:#6b746e;
+  cursor:not-allowed
+}
 
-.wa{
+.floating{
+  position:fixed;
+  right:16px;
+  bottom:18px;
+  z-index:60;
+  border:0;
+  background:var(--g);
+  color:#031008;
+  border-radius:999px;
+  padding:14px 18px;
+  font-weight:950;
+  box-shadow:0 12px 35px rgba(0,0,0,.25)
+}
+.floating b{
+  margin-left:4px
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(0,0,0,.62);
+  align-items:flex-end;
+  justify-content:center
+}
+.overlay.open{display:flex}
+.sheet{
+  width:min(620px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:25px 25px 0 0;
+  padding:18px
+}
+.sheetTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:14px
+}
+.sheetTop h3{
+  margin:0;
+  font-size:20px
+}
+.close{
+  border:0;
+  background:#edf1ee;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-weight:900
+}
+
+.detailImg{
+  width:100%;
+  max-height:55vh;
+  object-fit:contain;
+  border-radius:16px;
+  background:#edf1ee
+}
+.detailRef{
+  font-size:22px;
+  font-weight:950;
+  margin:14px 0 6px
+}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:14px 0
+}
+.qty button{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#e9eeeb;
+  font-size:20px;
+  font-weight:900
+}
+.qty strong{
+  min-width:30px;
+  text-align:center
+}
+.primary{
   width:100%;
   border:0;
-  background:#111;
+  border-radius:13px;
+  background:var(--black);
   color:#fff;
-  padding:16px;
-  border-radius:4px;
-  font-weight:1000;
-  margin-top:8px
+  padding:14px;
+  font-weight:950
 }
-
-.note{
+.whatsapp{
+  display:block;
   text-align:center;
-  font-size:10px;
-  color:#737b77;
-  margin-top:8px
+  background:#19c96b;
+  color:#031008;
+  border-radius:13px;
+  padding:14px;
+  font-weight:950;
+  margin-top:10px
 }
 
+.cartItem{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line)
+}
+.cartItem img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:10px;
+  background:#edf1ee
+}
+.cartInfo{
+  flex:1;
+  min-width:0
+}
+.cartInfo strong{font-size:13px}
+.cartInfo small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px
+}
+.remove{
+  border:0;
+  background:#f0f2f1;
+  width:34px;
+  height:34px;
+  border-radius:50%
+}
 .empty{
-  grid-column:1/-1;
-
-  border:1px dashed #bac5bf;
-
-  padding:34px;
-
+  padding:30px 10px;
   text-align:center;
-
-  color:#6d7771;
-
-  background:#fff
+  color:var(--muted)
 }
-
-/* CART ANIMATION */
-
-.fly{
-  position:fixed;
-  z-index:100;
-
-  width:18px;
-  height:18px;
-
-  border-radius:50%;
-
-  background:var(--g);
-
-  pointer-events:none;
-
-  animation:
-    fly .55s ease-in forwards
-}
-
-@keyframes fly{
-
-  to{
-    transform:
-      translate(
-        calc(50vw - 40px),
-        calc(-50vh + 30px)
-      )
-      scale(.15);
-
-    opacity:.15
-  }
-
-}
-
-/* DESKTOP */
 
 @media(min-width:700px){
-
-  .hero{
-    min-height:590px;
-    padding-left:8vw
-  }
-
-  .hero h1{
-    font-size:78px
-  }
-
   .grid{
-    grid-template-columns:
-      repeat(4,1fr)
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px
   }
-
-  .sheet{
-    bottom:18px;
-    border-radius:18px
+}
+@media(min-width:1000px){
+  .grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:16px
   }
-
 }
 </style>
 </head>
 
 <body>
 
-<header class="top">
-
-<button
-  class="icon"
-  aria-label="Categorías"
-  onclick="
-    document
-      .getElementById('catalogo')
-      .scrollIntoView({
-        behavior:'smooth'
-      })
-  "
->
-☰
-</button>
-
-<img
-  class="logo"
-  src="IMG_5681.png"
-  alt="La Familia CBD"
->
-
-<div class="actions">
-
-<button
-  class="icon"
-  aria-label="Buscar"
-  onclick="
-    document
-      .getElementById('search')
-      .focus()
-  "
->
-⌕
-</button>
-
-<button
-  class="icon cartTop"
-  aria-label="Carrito"
-  onclick="openCart()"
->
-🛒
-
-<span
-  class="badge"
-  id="topCount"
->
-0
-</span>
-
-</button>
-
-</div>
-
+<header class="header">
+  <div class="nav">
+    <div class="brand">
+      <img class="logo" src="IMG_5681.png" alt="La Familia CBD">
+      <strong>LA FAMILIA CBD</strong>
+    </div>
+    <button class="cartBtn" onclick="openCart()">
+      🛒 CARRITO <span id="cartCount">0</span>
+    </button>
+  </div>
 </header>
 
-
 <section class="hero">
-
-<div class="heroIn">
-
-<div class="kicker">
-CALIDAD · SELECCIÓN · ESTILO
-</div>
-
-<h1>
-LA FAMILIA
-<span>CBD</span>
-</h1>
-
-<p>
-CATÁLOGO ONLINE · PARA TUS PEDIDOS DIRECTAMENTE POR WHATSAPP
-</p>
-
-<button
-  class="cta"
-  onclick="
-    document
-      .getElementById('catalogo')
-      .scrollIntoView({
-        behavior:'smooth'
-      })
-  "
->
-VER CATÁLOGO →
-</button>
-
-</div>
-
+  <div class="heroInner">
+    <div class="kicker">CATÁLOGO ONLINE</div>
+    <h1>LA FAMILIA</h1>
+    <p>Accesorios, parafernalia y productos seleccionados. Elige tus referencias y prepara tu pedido directamente por WhatsApp.</p>
+  </div>
 </section>
 
-
-<main
-  class="wrap"
-  id="catalogo"
->
-
-<div class="sectionHead">
-
-<h2>
-PRODUCTOS
-</h2>
-
-<div
-  class="count"
-  id="count"
->
+<div class="tools">
+  <input id="search" class="search" type="search" placeholder="Buscar referencia…">
+  <div id="categories" class="categories"></div>
 </div>
 
+<main id="catalog"></main>
+
+<button class="floating" onclick="openCart()">🛒 Ver carrito <b id="floatingCount">0</b></button>
+
+<div id="detailOverlay" class="overlay" onclick="backgroundClose(event,'detailOverlay')">
+  <div class="sheet">
+    <div class="sheetTop">
+      <h3>Producto</h3>
+      <button class="close" onclick="closeDetail()">✕</button>
+    </div>
+    <div id="detail"></div>
+  </div>
 </div>
 
-
-<div class="search">
-
-<input
-  id="search"
-  type="search"
-  placeholder="Buscar producto..."
-  autocomplete="off"
->
-
+<div id="cartOverlay" class="overlay" onclick="backgroundClose(event,'cartOverlay')">
+  <div class="sheet">
+    <div class="sheetTop">
+      <h3>Tu carrito</h3>
+      <button class="close" onclick="closeCart()">✕</button>
+    </div>
+    <div id="cart"></div>
+  </div>
 </div>
-
-
-<div
-  class="cats"
-  id="cats"
->
-</div>
-
-
-<div
-  class="grid"
-  id="products"
->
-</div>
-
-</main>
-
-
-<button
-  class="floating"
-  aria-label="Abrir carrito"
-  onclick="openCart()"
->
-
-🛒
-
-<span
-  class="badge"
-  id="floatCount"
->
-0
-</span>
-
-</button>
-
-
-<div
-  class="overlay"
-  id="overlay"
-  onclick="backdrop(event)"
->
-
-<div
-  class="sheet"
-  id="sheet"
->
-
-<div
-  class="productView"
-  id="productView"
->
-</div>
-
-<div
-  class="cartView"
-  id="cartView"
->
-</div>
-
-</div>
-
-</div>
-
 
 <script>
+const WHATSAPP="34722286751";
 
-const WHATSAPP =
-"34722286751";
-
-const LOGO =
-"IMG_5681.png";
-
-
-const categories = [
-"Bandejas",
-"Cremas",
-"Grinders",
-"Accesorios",
-"Packs",
-"Papel y Tips",
-"Pipas y otros accesorios",
-"Vapers",
-"Clippers",
-"Hash",
-"Ceniceros"
+const CATS=[
+  "Bandejas",
+  "Cremas",
+  "Grinders",
+  "Accesorios",
+  "Packs",
+  "Papel y Tips",
+  "Pipas y otros accesorios",
+  "Vapers",
+  "Clippers",
+  "Hash",
+  "Ceniceros"
 ];
 
+/*
+  168 REFERENCIAS
+  La numeración se genera automáticamente dentro de cada categoría.
+  null = foto pendiente de asociación.
+*/
 
-const products = [
+const raw=[
 
-/* BANDEJAS */
+["Bandejas","IMG_5734.jpeg"],
+["Bandejas","IMG_5735.jpeg"],
+["Bandejas","IMG_5736.jpeg"],
+["Bandejas","IMG_5737.jpeg"],
+["Bandejas","IMG_5738.jpeg"],
+["Bandejas","IMG_5739.jpeg"],
+["Bandejas","IMG_5740.jpeg"],
+["Bandejas","IMG_5741.jpeg"],
+["Bandejas","IMG_5742.jpeg"],
+["Bandejas","IMG_5743.jpeg"],
+["Bandejas","IMG_5744.jpeg"],
 
-{"name":"RAW Donuts","category":"Bandejas","image":"IMG_5646.jpeg"},
-{"name":"RAW Classic · rojo/amarillo/verde","category":"Bandejas","image":"IMG_5647.jpeg"},
-{"name":"RAW Classic Metal · plateado","category":"Bandejas","image":"IMG_5653.jpeg"},
-{"name":"RAW psicodélica · rosa/rojo","category":"Bandejas","image":"IMG_5654.jpeg"},
-{"name":"RAW Classic · rojo/amarillo/verde","category":"Bandejas","image":"IMG_5655.jpeg"},
-{"name":"Goody · negra · logo amarillo","category":"Bandejas","image":"IMG_5682.jpeg"},
-{"name":"RAW Black · negra · logo rojo","category":"Bandejas","image":"IMG_5683.jpeg"},
-{"name":"GOODY · dorada/marrón","category":"Bandejas","image":"IMG_5684.jpeg"},
-{"name":"GOODY · negra","category":"Bandejas","image":"IMG_5686.jpeg"},
-{"name":"RAW Classic · redonda","category":"Bandejas","image":"IMG_5687.jpeg"},
-{"name":"RAW Classic · verde/amarillo/rojo","category":"Bandejas","image":"IMG_5688.jpeg"},
-{"name":"Strawberry Banana","category":"Bandejas","image":"IMG_5689.jpeg"},
-{"name":"Hojas de cannabis · negra","category":"Bandejas","image":"IMG_5690.jpeg"},
-{"name":"Chocolate Skunk","category":"Bandejas","image":"IMG_5693.jpeg"},
-{"name":"Camaleón psicodélico","category":"Bandejas","image":"IMG_5694.jpeg"},
-{"name":"Best Buds · personaje fumando","category":"Bandejas","image":"IMG_5696.jpeg"},
-{"name":"RAW · chica con patines","category":"Bandejas","image":"IMG_5699.jpeg"},
-{"name":"RAW Challenge Cone","category":"Bandejas","image":"IMG_5700.jpeg"},
-{"name":"RAW Black · negra/roja","category":"Bandejas","image":"IMG_5701.jpeg"},
-{"name":"RAW Black · monstruo verde","category":"Bandejas","image":"IMG_5704.jpeg"},
-{"name":"RAW Black Classic · negra","category":"Bandejas","image":"IMG_5705.jpeg"},
-{"name":"RAW · diseño clásico","category":"Bandejas","image":"IMG_5706.jpeg"},
-{"name":"Gato rosa/azul · psicodélica","category":"Bandejas","image":"IMG_5710.jpeg"},
-{"name":"Osito azul con velas","category":"Bandejas","image":"IMG_5713.jpeg"},
-{"name":"Buho Papers · beige","category":"Bandejas","image":"IMG_5714.jpeg"},
-{"name":"Hoja de cannabis · verde/amarillo/rojo","category":"Bandejas","image":"IMG_5715.jpeg"},
-{"name":"Buho Papers · negra","category":"Bandejas","image":"IMG_5716.jpeg"},
-{"name":"RAW · personaje verde de un ojo","category":"Bandejas","image":"IMG_5729.jpeg"},
-{"name":"420 · hojas multicolor","category":"Bandejas","image":"IMG_5731.jpeg"},
-{"name":"RAW 20th Anniversary · verde","category":"Bandejas","image":"IMG_5732.jpeg"},
-{"name":"Camaleón 3D · Premium Wood","category":"Bandejas","image":"IMG_5733.jpeg"},
-{"name":"Gato DJ · galaxia","category":"Bandejas","image":"IMG_5734.jpeg"},
-{"name":"Bicicletas 1943","category":"Bandejas","image":"IMG_5735.jpeg"},
-{"name":"The Pope Smokes Dope","category":"Bandejas","image":"IMG_5736.jpeg"},
-{"name":"Hojas de colores · negra","category":"Bandejas","image":"IMG_5737.jpeg"},
-{"name":"Oso azul · velas","category":"Bandejas","image":"IMG_5738.jpeg"},
-{"name":"Mesa DJ · plato giradiscos","category":"Bandejas","image":"IMG_5739.jpeg"},
-{"name":"Hoja tricolor","category":"Bandejas","image":"IMG_5740.jpeg"},
-{"name":"Narcos · rosa","category":"Bandejas","image":"IMG_5741.jpeg"},
-{"name":"Narcos · rojo","category":"Bandejas","image":"IMG_5742.jpeg"},
-{"name":"Personaje verde psicodélico","category":"Bandejas","image":"IMG_5743.jpeg"},
-{"name":"Simply… · personaje verde","category":"Bandejas","image":"IMG_5744.jpeg"},
+["Bandejas","IMG_5682.jpeg"],
+["Bandejas","IMG_5683.jpeg"],
+["Bandejas","IMG_5684.jpeg"],
+["Bandejas","IMG_5686.jpeg"],
+["Bandejas","IMG_5687.jpeg"],
+["Bandejas","IMG_5688.jpeg"],
+["Bandejas","IMG_5689.jpeg"],
+["Bandejas","IMG_5690.jpeg"],
+["Bandejas","IMG_5693.jpeg"],
+["Bandejas","IMG_5694.jpeg"],
+["Bandejas","IMG_5696.jpeg"],
+["Bandejas","IMG_5699.jpeg"],
+["Bandejas","IMG_5700.jpeg"],
+["Bandejas","IMG_5701.jpeg"],
+["Bandejas","IMG_5704.jpeg"],
+["Bandejas","IMG_5705.jpeg"],
+["Bandejas","IMG_5706.jpeg"],
+["Bandejas","IMG_5710.jpeg"],
+["Bandejas","IMG_5713.jpeg"],
+["Bandejas","IMG_5714.jpeg"],
+["Bandejas","IMG_5715.jpeg"],
+["Bandejas","IMG_5716.jpeg"],
+["Bandejas","IMG_5729.jpeg"],
+["Bandejas","IMG_5731.jpeg"],
+["Bandejas","IMG_5732.jpeg"],
+["Bandejas","IMG_5733.jpeg"],
+["Bandejas",null],
+["Bandejas",null],
+["Bandejas",null],
+["Bandejas",null],
+["Bandejas",null],
 
-/* CREMAS */
+["Cremas","IMG_5747.jpeg"],
+["Cremas","IMG_5748.jpeg"],
+["Cremas","IMG_5749.jpeg"],
+["Cremas","IMG_5750.jpeg"],
+["Cremas","IMG_5751.jpeg"],
+["Cremas","IMG_5752.jpeg"],
+["Cremas","IMG_5753.jpeg"],
+["Cremas","IMG_5754.jpeg"],
+["Cremas","IMG_5755.jpeg"],
+["Cremas","IMG_5756.jpeg"],
+["Cremas","IMG_5757.jpeg"],
+["Cremas","IMG_5758.jpeg"],
+["Cremas","IMG_5759.jpeg"],
+["Cremas","IMG_5760.jpeg"],
+["Cremas","IMG_5761.jpeg"],
+["Cremas","IMG_5763.jpeg"],
+["Cremas","IMG_5764.jpeg"],
+["Cremas","IMG_5765.jpeg"],
+["Cremas","IMG_5766.jpeg"],
+["Cremas","IMG_5767.jpeg"],
+["Cremas","IMG_5768.jpeg"],
+["Cremas","IMG_5769.jpeg"],
+["Cremas","IMG_5770.jpeg"],
+["Cremas","IMG_5771.jpeg"],
 
-{"name":"Peptide + HA Facial Serum","category":"Cremas","image":"IMG_5747.jpeg"},
-{"name":"Restorative Cream","category":"Cremas","image":"IMG_5748.jpeg"},
-{"name":"Blemish Purity Cream","category":"Cremas","image":"IMG_5749.jpeg"},
-{"name":"Stop Hair Loss Elixir","category":"Cremas","image":"IMG_5750.jpeg"},
-{"name":"Hyaluronic Serum","category":"Cremas","image":"IMG_5751.jpeg"},
-{"name":"Anti-Aging Eye Contour Cream","category":"Cremas","image":"IMG_5752.jpeg"},
-{"name":"Light Moisture Facial Cream SPF 50+","category":"Cremas","image":"IMG_5753.jpeg"},
-{"name":"Anti-Aging Restorative Moisture Facial Cream","category":"Cremas","image":"IMG_5754.jpeg"},
-{"name":"Natural Lip Balm COCOA","category":"Cremas","image":"IMG_5755.jpeg"},
-{"name":"TATTOO Natural Balm","category":"Cremas","image":"IMG_5756.jpeg"},
-{"name":"Weedness Sport Gel · Warming","category":"Cremas","image":"IMG_5757.jpeg"},
-{"name":"Weedness Sport Gel · Cooling","category":"Cremas","image":"IMG_5758.jpeg"},
-{"name":"Weedness Pets · CBD Oil Bacon","category":"Cremas","image":"IMG_5759.jpeg"},
-{"name":"Weedness Pets · CBD Oil Salmon","category":"Cremas","image":"IMG_5760.jpeg"},
-{"name":"Canna-Tails · CBD Oil Equilibrio","category":"Cremas","image":"IMG_5761.jpeg"},
-{"name":"Canna-Tails · CBD Oil Calma","category":"Cremas","image":"IMG_5763.jpeg"},
-{"name":"CANNATIGER · CBD Balm","category":"Cremas","image":"IMG_5764.jpeg"},
-{"name":"Atopi Cream","category":"Cremas","image":"IMG_5765.jpeg"},
-{"name":"Dr. Bronner's · Patchouli-Lime Organic Body Lotion","category":"Cremas","image":"IMG_5766.jpeg"},
-{"name":"Weedness · Anti-Aging Cleansing Milk","category":"Cremas","image":"IMG_5767.jpeg"},
-{"name":"Palacio 3 in 1 Hemp Shower","category":"Cremas","image":"IMG_5768.jpeg"},
-{"name":"Palacio Cannabis Shower Cream Gel","category":"Cremas","image":"IMG_5769.jpeg"},
-{"name":"CBD Handmade Natural Soap · 100 mg CBD","category":"Cremas","image":"IMG_5770.jpeg"},
-{"name":"CBD Handmade Natural Soap","category":"Cremas","image":"IMG_5771.jpeg"},
+["Grinders","IMG_5691.jpeg"],
+["Grinders","IMG_5709.jpeg"],
+["Grinders","IMG_5711.jpeg"],
+["Grinders","IMG_5773.jpeg"],
+["Grinders","IMG_5777.jpeg"],
+["Grinders","IMG_5778.jpeg"],
+["Grinders","IMG_5779.jpeg"],
+["Grinders","IMG_5797.jpeg"],
+["Grinders","IMG_5799.jpeg"],
+["Grinders","IMG_5800.jpeg"],
+["Grinders","IMG_5802.jpeg"],
+["Grinders","IMG_5803.jpeg"],
+["Grinders","IMG_5836.jpeg"],
+["Grinders","IMG_5837.jpeg"],
 
-/* GRINDERS */
+["Accesorios","IMG_5774.jpeg"],
+["Accesorios","IMG_5775.jpeg"],
+["Accesorios","IMG_5776.jpeg"],
+["Accesorios","IMG_5780.jpeg"],
+["Accesorios","IMG_5781.jpeg"],
+["Accesorios","IMG_5782.jpeg"],
+["Accesorios","IMG_5783.jpeg"],
+["Accesorios","IMG_5784.jpeg"],
+["Accesorios","IMG_5785.jpeg"],
+["Accesorios","IMG_5786.jpeg"],
+["Accesorios","IMG_5787.jpeg"],
+["Accesorios","IMG_5788.jpeg"],
+["Accesorios","IMG_5789.jpeg"],
+["Accesorios","IMG_5790.jpeg"],
+["Accesorios","IMG_5791.jpeg"],
 
-{"name":"SK8 Grinder · negro/verde","category":"Grinders","image":"IMG_5691.jpeg"},
-{"name":"RAW HammerCraft · pequeño","category":"Grinders","image":"IMG_5709.jpeg"},
-{"name":"RAW HammerCraft · mediano","category":"Grinders","image":"IMG_5711.jpeg"},
-{"name":"RAW HammerCraft · grande","category":"Grinders","image":"IMG_5773.jpeg"},
-{"name":"Grinder metálico · plateado","category":"Grinders","image":"IMG_5777.jpeg"},
-{"name":"Grinder negro · detalles dorados","category":"Grinders","image":"IMG_5778.jpeg"},
-{"name":"Grinder negro · detalles rojos","category":"Grinders","image":"IMG_5779.jpeg"},
-{"name":"Grinder Rainbow · multicolor","category":"Grinders","image":"IMG_5797.jpeg"},
-{"name":"Best Buds · Gorilla Glue","category":"Grinders","image":"IMG_5799.jpeg"},
-{"name":"Herb Grinder · 3 Parts","category":"Grinders","image":"IMG_5800.jpeg"},
-{"name":"Herb Grinder · negro · 3 Parts","category":"Grinders","image":"IMG_5802.jpeg"},
-{"name":"Monkey King · Acrylic Grinder · 3 Parts","category":"Grinders","image":"IMG_5803.jpeg"},
-{"name":"Grinder negro multifunción","category":"Grinders","image":"IMG_5836.jpeg"},
-{"name":"Best Buds · Compact · Ultra-Light Aluminium","category":"Grinders","image":"IMG_5837.jpeg"},
+["Packs","IMG_5792.jpeg"],
+["Packs","IMG_5793.jpeg"],
+["Packs","IMG_5794.jpeg"],
+["Packs","IMG_5795.jpeg"],
+["Packs","IMG_5796.jpeg"],
+["Packs","IMG_5798.jpeg"],
+["Packs","IMG_5801.jpeg"],
 
-/* ACCESORIOS */
+["Papel y Tips","IMG_5804.jpeg"],
+["Papel y Tips","IMG_5805.jpeg"],
+["Papel y Tips","IMG_5806.jpeg"],
+["Papel y Tips","IMG_5807.jpeg"],
+["Papel y Tips","IMG_5808.jpeg"],
+["Papel y Tips","IMG_5809.jpeg"],
+["Papel y Tips","IMG_5810.jpeg"],
+["Papel y Tips","IMG_5811.jpeg"],
+["Papel y Tips","IMG_5812.jpeg"],
+["Papel y Tips","IMG_5813.jpeg"],
+["Papel y Tips","IMG_5814.jpeg"],
+["Papel y Tips","IMG_5815.jpeg"],
+["Papel y Tips","IMG_5816.jpeg"],
+["Papel y Tips","IMG_5817.jpeg"],
+["Papel y Tips","IMG_5818.jpeg"],
+["Papel y Tips","IMG_5819.jpeg"],
+["Papel y Tips","IMG_5820.jpeg"],
+["Papel y Tips","IMG_5821.jpeg"],
 
-{"name":"We ❤️ Socks · negro/verde · 40–45","category":"Accesorios","image":"IMG_5786.jpeg"},
-{"name":"We ❤️ Socks · 420 negro/verde · 40–45","category":"Accesorios","image":"IMG_5787.jpeg"},
-{"name":"We ❤️ Socks · rosa/verde · 36–42","category":"Accesorios","image":"IMG_5788.jpeg"},
-{"name":"We ❤️ Socks · azul/multicolor · 36–42","category":"Accesorios","image":"IMG_5789.jpeg"},
-{"name":"We ❤️ Socks · negro/multicolor · 40–45","category":"Accesorios","image":"IMG_5791.jpeg"},
-{"name":"We ❤️ Socks · negro/gris/blanco · 40–45","category":"Accesorios","image":"IMG_5792.jpeg"},
-{"name":"We ❤️ Socks · verde/rosa · 36–42","category":"Accesorios","image":"IMG_5793.jpeg"},
-{"name":"We ❤️ Socks · blanco/verde · 36–42","category":"Accesorios","image":"IMG_5794.jpeg"},
-{"name":"Lanyard RAW Classic Rolling Papers","category":"Accesorios","image":"IMG_5806.jpeg"},
-{"name":"RAW Black Odor-Free Storage Bags · Medium","category":"Accesorios","image":"IMG_5784.jpeg"},
-{"name":"RAW Black Odor-Free Storage Bags · Large","category":"Accesorios","image":"IMG_5785.jpeg"},
-{"name":"RAW Classic Rolling Papers · bolsa beige","category":"Accesorios","image":"IMG_5783.jpeg"},
-{"name":"RAW Classic Rolling Papers · mochila negra","category":"Accesorios","image":"IMG_5805.jpeg"},
-{"name":"RAW Classic Cap · camuflaje","category":"Accesorios","image":"IMG_5692.jpeg"},
-{"name":"RAW Cap · negro","category":"Accesorios","image":null},
+["Pipas y otros accesorios","IMG_5822.jpeg"],
+["Pipas y otros accesorios","IMG_5823.jpeg"],
+["Pipas y otros accesorios","IMG_5824.jpeg"],
+["Pipas y otros accesorios","IMG_5825.jpeg"],
+["Pipas y otros accesorios","IMG_5826.jpeg"],
+["Pipas y otros accesorios","IMG_5827.jpeg"],
+["Pipas y otros accesorios","IMG_5828.jpeg"],
+["Pipas y otros accesorios","IMG_5829.jpeg"],
+["Pipas y otros accesorios","IMG_5830.jpeg"],
+["Pipas y otros accesorios","IMG_5831.jpeg"],
+["Pipas y otros accesorios","IMG_5832.jpeg"],
+["Pipas y otros accesorios","IMG_5833.jpeg"],
+["Pipas y otros accesorios","IMG_5834.jpeg"],
+["Pipas y otros accesorios","IMG_5835.jpeg"],
+["Pipas y otros accesorios","IMG_5838.jpeg"],
+["Pipas y otros accesorios","IMG_5839.jpeg"],
+["Pipas y otros accesorios","IMG_5856.jpeg"],
+["Pipas y otros accesorios","IMG_5857.jpeg"],
+["Pipas y otros accesorios","IMG_5856.jpeg"],
+["Pipas y otros accesorios","IMG_5862.jpeg"],
 
-/* PACKS */
+["Vapers","IMG_5840.jpeg"],
+["Vapers","IMG_5841.jpeg"],
+["Vapers","IMG_5842.jpeg"],
+["Vapers","IMG_5843.jpeg"],
+["Vapers","IMG_5844.jpeg"],
+["Vapers","IMG_5845.jpeg"],
 
-{"name":"Pack Munchies · Monkey King","category":"Packs","image":"IMG_5853.jpeg"},
-{"name":"Pack G-Rollz · Thug for Life","category":"Packs","image":"IMG_5821.jpeg"},
-{"name":"Pack CHAMP:HIGH · Pipe & Grinder","category":"Packs","image":null},
-{"name":"Pack CHAMP:HIGH · Travel Kit","category":"Packs","image":null},
-{"name":"Caja/Pack de almacenamiento · madera","category":"Packs","image":null},
-{"name":"Pack Smoking Set","category":"Packs","image":null},
-{"name":"Diamond Leaf · 5 Piece Set","category":"Packs","image":null},
+["Clippers","IMG_5846.jpeg"],
+["Clippers","IMG_5847.jpeg"],
+["Clippers","IMG_5848.jpeg"],
+["Clippers","IMG_5849.jpeg"],
+["Clippers","IMG_5850.jpeg"],
+["Clippers","IMG_5851.jpeg"],
+["Clippers","IMG_5852.jpeg"],
 
-/* PAPEL Y TIPS */
+["Hash","IMG_5853.jpeg"],
+["Hash","IMG_5854.jpeg"],
+["Hash","IMG_5855.jpeg"],
+["Hash","IMG_5858.jpeg"],
+["Hash","IMG_5859.jpeg"],
+["Hash","IMG_5860.jpeg"],
+["Hash","IMG_5861.jpeg"],
 
-{"name":"Boho Rolling Papers · 1¼ Medium","category":"Papel y Tips","image":"IMG_5809.jpeg"},
-{"name":"BEUZ · Wide Rolling Tips · 25 mm","category":"Papel y Tips","image":"IMG_5810.jpeg"},
-{"name":"Diamond Leaf · King Size Slim","category":"Papel y Tips","image":"IMG_5811.jpeg"},
-{"name":"BEUZ · King Size Slim","category":"Papel y Tips","image":"IMG_5812.jpeg"},
-{"name":"RAW Classic · Kingsize Slim","category":"Papel y Tips","image":"IMG_5813.jpeg"},
-{"name":"RAW Classic Black · Connoisseur · Kingsize Slim","category":"Papel y Tips","image":"IMG_5826.jpeg"},
-{"name":"RAW Classic Black · Kingsize Slim","category":"Papel y Tips","image":"IMG_5827.jpeg"},
-{"name":"RAW Classic Black · Connoisseur 1¼ + Tips","category":"Papel y Tips","image":"IMG_5828.jpeg"},
-{"name":"RAW Tips · Original","category":"Papel y Tips","image":"IMG_5829.jpeg"},
-{"name":"Monkey King · Billionaire Gold","category":"Papel y Tips","image":"IMG_5830.jpeg"},
-{"name":"Elements Pink Papers · King Size Slim","category":"Papel y Tips","image":"IMG_5824.jpeg"},
-{"name":"Diamond Leaf Purple · King Size Slim","category":"Papel y Tips","image":"IMG_5823.jpeg"},
-{"name":"G-Rollz Orange Dream · 4 Hemp Wraps","category":"Papel y Tips","image":"IMG_5810.jpeg"},
-{"name":"G-Rollz Passion Haze · 4 Hemp Wraps","category":"Papel y Tips","image":"IMG_5812.jpeg"},
-{"name":"Cartel CBD · 130 mm · 32 sheets + 32 filters","category":"Papel y Tips","image":null},
-{"name":"G-Rollz Green Funk · 4 Hemp Wraps","category":"Papel y Tips","image":"IMG_5813.jpeg"},
-{"name":"RAW Rolls · 3 Meter Rolls","category":"Papel y Tips","image":"IMG_5831.jpeg"},
-{"name":"actiTube · activated charcoal filters · 8 mm","category":"Papel y Tips","image":"IMG_5746.jpeg"},
-
-/* PIPAS Y OTROS */
-
-{"name":"Pipa de agua azul","category":"Pipas y otros accesorios","image":"IMG_5780.jpeg"},
-{"name":"Pipa de agua negra/blanca","category":"Pipas y otros accesorios","image":null},
-{"name":"Cenicero RAW de cristal","category":"Pipas y otros accesorios","image":null},
-{"name":"Pipa de agua búho amarilla","category":"Pipas y otros accesorios","image":"IMG_5852.jpeg"},
-{"name":"Cenicero metálico arcoíris","category":"Pipas y otros accesorios","image":null},
-{"name":"Vaso/pipa de cristal con tapa verde","category":"Pipas y otros accesorios","image":"IMG_5807.jpeg"},
-{"name":"Pipa de agua azul tipo bong","category":"Pipas y otros accesorios","image":"IMG_5850.jpeg"},
-{"name":"Colgante hoja de cannabis","category":"Pipas y otros accesorios","image":null},
-{"name":"Cenicero/calavera","category":"Pipas y otros accesorios","image":null},
-{"name":"Pipa unicornio","category":"Pipas y otros accesorios","image":null},
-{"name":"Grinder negro compacto","category":"Pipas y otros accesorios","image":"IMG_5802.jpeg"},
-{"name":"Pipa/tubo de cristal azul","category":"Pipas y otros accesorios","image":"IMG_5851.jpeg"},
-{"name":"King Palm · tubo de pre-roll","category":"Pipas y otros accesorios","image":"IMG_5854.jpeg"},
-{"name":"RAW 20th Anniversary · tubo verde","category":"Pipas y otros accesorios","image":null},
-{"name":"RAW Glass Tips · 6 × 35 mm","category":"Pipas y otros accesorios","image":"IMG_5814.jpeg"},
-{"name":"RAW Classic King Size · soporte para 6 conos","category":"Pipas y otros accesorios","image":null},
-{"name":"CHAMP:HIGH Travel Kit · pipa + accesorios","category":"Pipas y otros accesorios","image":"IMG_5856.jpeg"},
-{"name":"CHAMP:HIGH · pipa verde + grinder","category":"Pipas y otros accesorios","image":"IMG_5855.jpeg"},
-{"name":"RAW Slow Burning Papers · soporte negro","category":"Pipas y otros accesorios","image":"IMG_5856.jpeg"},
-{"name":"Pipa de cerámica blanca · detalle dorado","category":"Pipas y otros accesorios","image":"IMG_5698.jpeg"},
-
-/* VAPERS */
-
-{"name":"Iguana Smoke · Amnesia · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5858.jpeg"},
-{"name":"Iguana Smoke · Strawberry · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5859.jpeg"},
-{"name":"Iguana Smoke · Gorilla Glue · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5860.jpeg"},
-{"name":"Iguana Smoke · Mango · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5861.jpeg"},
-{"name":"Iguana Smoke · Gelato · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5857.jpeg"},
-{"name":"Iguana Smoke · Red Berries · 1400 mg · 70% CBD","category":"Vapers","image":"IMG_5862.jpeg"},
-
-/* CLIPPERS */
-
-{"name":"Clippers RAW · pack de 8","category":"Clippers","image":"IMG_5848.jpeg"},
-{"name":"Clippers Clipper Reusable · multicolor","category":"Clippers","image":"IMG_5844.jpeg"},
-{"name":"Clippers Clásicos · diseños","category":"Clippers","image":"IMG_5843.jpeg"},
-{"name":"Clippers PROF · hojas de colores","category":"Clippers","image":"IMG_5845.jpeg"},
-{"name":"Clippers Clipper · frases","category":"Clippers","image":"IMG_5846.jpeg"},
-{"name":"Clippers PROF · rojo con estrellas","category":"Clippers","image":"IMG_5842.jpeg"},
-{"name":"Clippers PROF Color · hojas de colores","category":"Clippers","image":"IMG_5847.jpeg"},
-
-/* HASH */
-
-{"name":"Bellota","category":"Hash","image":null},
-{"name":"Snow","category":"Hash","image":null},
-{"name":"Gold Cream","category":"Hash","image":null},
-{"name":"Brownie","category":"Hash","image":null},
-{"name":"Blondy","category":"Hash","image":null},
-{"name":"Caramello","category":"Hash","image":null},
-{"name":"Black Mamba","category":"Hash","image":null},
-
-/* CENICEROS */
-
-{"name":"RAW Original · Transparente","category":"Ceniceros","image":"IMG_5663.jpeg"},
-{"name":"Cenicero · Amarillo","category":"Ceniceros","image":"IMG_5662.jpeg"},
-{"name":"Cenicero · Verde","category":"Ceniceros","image":"IMG_5661.jpeg"},
-{"name":"Cenicero · Plateado","category":"Ceniceros","image":"IMG_5660.jpeg"},
-{"name":"Cenicero · Transparente","category":"Ceniceros","image":"IMG_5659.jpeg"},
-{"name":"RAW Original · Rojo","category":"Ceniceros","image":"IMG_5657.jpeg"},
-{"name":"RAW Original · Multicolor","category":"Ceniceros","image":"IMG_5656.jpeg"},
-{"name":"RAW Black · rojo/negro","category":"Ceniceros","image":"IMG_5703.jpeg"}
-
+["Ceniceros","IMG_5663.jpeg"],
+["Ceniceros","IMG_5662.jpeg"],
+["Ceniceros","IMG_5661.jpeg"],
+["Ceniceros","IMG_5660.jpeg"],
+["Ceniceros","IMG_5659.jpeg"],
+["Ceniceros","IMG_5657.jpeg"],
+["Ceniceros","IMG_5656.jpeg"],
+["Ceniceros","IMG_5655.jpeg"]
 ];
 
-
-let selected="Todos";
+let products=[];
 let cart=[];
 let current=null;
-let query="";
 
-const soldOut=new Set();
-
-
-function safe(s){
-
-  return String(s).replace(
-    /[&<>"']/g,
-    m=>({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[m])
-  )
-
+function slugCategory(cat){
+  return cat
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-|-$/g,"");
 }
 
-
-function imageHTML(p){
-
-  if(!p.image){
-
-    return `
-      <div class="noPhoto">
-        FOTO PENDIENTE
-      </div>
-    `;
-
-  }
-
-  return `
-    <img
-      src="${safe(p.image)}"
-      alt="${safe(p.name)}"
-      loading="lazy"
-    >
-  `;
-
+function esc(str){
+  return String(str)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
 }
 
-
-function isAvailable(p){
-
-  return !soldOut.has(p.name);
-
+function buildProducts(){
+  const counters={};
+  products=raw.map(([category,image])=>{
+    counters[category]=(counters[category]||0)+1;
+    const n=String(counters[category]).padStart(2,"0");
+    return {
+      id:slugCategory(category)+"-"+n,
+      category,
+      number:n,
+      ref:category+" #"+n,
+      image,
+      available:true
+    };
+  });
 }
 
-
-function renderCats(){
-
-  const el=document.getElementById("cats");
-
-  el.innerHTML=`
-
-    <button
-      class="cat ${selected==="Todos"?"active":""}"
-      onclick="filterCat('Todos')"
-    >
-      TODOS
-    </button>
-
-  `+
-
-  categories.map(c=>`
-
-    <button
-      class="cat ${selected===c?"active":""}"
-      onclick='filterCat(${JSON.stringify(c)})'
-    >
-      ${safe(c.toUpperCase())}
-    </button>
-
-  `).join("");
-
+function productUrl(p){
+  return location.origin+
+    location.pathname+
+    "#"+p.id;
 }
 
+function renderCategories(){
+  const box=document.getElementById("categories");
+  box.innerHTML=
+    `<button class="cat active" onclick="filterCategory('Todas',this)">Todas</button>`+
+    CATS.map(c=>
+      `<button class="cat" onclick="filterCategory('${esc(c)}',this)">${esc(c)}</button>`
+    ).join("");
+}
 
 function render(){
+  const catalog=document.getElementById("catalog");
+  const q=document.getElementById("search").value.trim().toLowerCase();
 
-  renderCats();
+  catalog.innerHTML="";
 
-  const list=
-    products.filter(
-      p=>
-        (selected==="Todos" || p.category===selected)
-        &&
-        (
-          !query ||
-          p.name
-            .toLowerCase()
-            .includes(query.toLowerCase())
-        )
-    );
-
-
-  document.getElementById("count")
-    .textContent=
-      list.length+" productos";
-
-
-  document.getElementById("products")
-    .innerHTML=
-
-    list.length
-
-    ?
-
-    list.map(p=>{
-
-      const av=isAvailable(p);
-      const index=products.indexOf(p);
-
-      return `
-
-        <article
-          class="card"
-          onclick="openProduct(${index})"
-        >
-
-          <div class="photo">
-
-            ${imageHTML(p)}
-
-          </div>
-
-
-          <div class="info">
-
-            <div class="name">
-              ${safe(p.name)}
-            </div>
-
-
-            <div
-              class="available ${av?"":"off"}"
-            >
-              ● ${av?"Disponible":"Agotado"}
-            </div>
-
-
-            <div class="priceRow">
-
-              <button
-                class="add ${av?"":"off"}"
-                ${av?"":"disabled"}
-                onclick="
-                  event.stopPropagation();
-                  ${av?`quickAdd(${index})`:""}
-                "
-              >
-                ${av?"AÑADIR":"AGOTADO"}
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("")
-
-    :
-
-    `
-
-      <div class="empty">
-        No encontramos productos con esa búsqueda.
-      </div>
-
-    `;
-
-}
-
-
-function filterCat(c){
-
-  selected=c;
-
-  render();
-
-  document
-    .getElementById("catalogo")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
+  CATS.forEach(category=>{
+    const list=products.filter(p=>{
+      if(p.category!==category)return false;
+      if(!q)return true;
+      return p.ref.toLowerCase().includes(q) ||
+             p.category.toLowerCase().includes(q) ||
+             p.number.includes(q);
     });
 
+    if(!list.length)return;
+
+    const section=document.createElement("section");
+    section.className="section";
+    section.dataset.category=category;
+
+    section.innerHTML=`
+      <div class="sectionHead">
+        <h2>${esc(category)}</h2>
+        <small>${list.length} referencias</small>
+      </div>
+      <div class="grid">
+        ${list.map(cardHTML).join("")}
+      </div>
+    `;
+
+    catalog.appendChild(section);
+  });
 }
 
+function cardHTML(p){
+  const img=p.image
+    ? `<img src="${esc(p.image)}" alt="${esc(p.ref)}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=pending>Foto pendiente</div>'">`
+    : `<div class="pending">Foto pendiente</div>`;
 
-document
-  .getElementById("search")
-  .addEventListener(
-    "input",
-    e=>{
-      query=e.target.value;
-      render();
-    }
-  );
-
-
-function openProduct(i){
-
-  const p=products[i];
-
-  if(
-    !p ||
-    !isAvailable(p)
-  ){
-
-    return;
-
-  }
-
-
-  current={
-    ...p,
-    qty:1
-  };
-
-
-  document
-    .getElementById("productView")
-    .innerHTML=`
-
-      <button
-        class="close"
-        onclick="closeOverlay()"
-      >
-        ×
-      </button>
-
-      ${
-        p.image
-
-        ?
-
-        `
-          <img
-            class="heroImg"
-            src="${safe(p.image)}"
-            alt="${safe(p.name)}"
-          >
-        `
-
-        :
-
-        `
-          <div
-            class="photo"
-            style="aspect-ratio:1.1"
-          >
-            <div class="noPhoto">
-              FOTO PENDIENTE
-            </div>
-          </div>
-        `
-      }
-
-
-      <div class="modalBody">
-
-        <h3>
-          ${safe(p.name)}
-        </h3>
-
-
-        <div class="stock">
-          ● Disponible
-        </div>
-
-
-        <div class="qty">
-
-          <button
-            onclick="changeQty(-1)"
-          >
-            −
-          </button>
-
-
-          <span id="modalQty">
-            1
-          </span>
-
-
-          <button
-            onclick="changeQty(1)"
-          >
-            +
-          </button>
-
-        </div>
-
-
+  return `
+    <article class="card" id="${p.id}">
+      <a href="#${p.id}" onclick="openProduct('${p.id}');return false">
+        <div class="photo">${img}</div>
+      </a>
+      <div class="info">
+        <div class="ref">${esc(p.ref)}</div>
+        ${
+          p.available
+          ? `<div class="available"><span class="dot"></span>Disponible</div>`
+          : `<div class="available" style="color:#a34b4b"><span class="dot" style="background:#b94c4c"></span>Agotado</div>`
+        }
         <button
-          class="confirm"
-          onclick="confirmAdd()"
+          class="add ${p.available?'':'disabled'}"
+          ${p.available?`onclick="addToCart('${p.id}')"`:"disabled"}
         >
-          AÑADIR AL CARRITO →
+          ${p.available?"AÑADIR":"AGOTADO"}
         </button>
-
       </div>
-
-    `;
-
-
-  document
-    .getElementById("sheet")
-    .classList.remove("cartMode");
-
-
-  document
-    .getElementById("overlay")
-    .classList.add("show");
-
+    </article>
+  `;
 }
 
+function filterCategory(category,btn){
+  document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
 
-function quickAdd(i){
-
-  current={
-    ...products[i],
-    qty:1
-  };
-
-  confirmAdd();
-
-}
-
-
-function changeQty(n){
-
-  current.qty=
-    Math.max(
-      1,
-      current.qty+n
-    );
-
-
-  document
-    .getElementById("modalQty")
-    .textContent=
-      current.qty;
-
-}
-
-
-function confirmAdd(){
-
-  if(!current){
+  if(category==="Todas"){
+    document.querySelectorAll(".section").forEach(x=>x.style.display="block");
     return;
   }
 
+  document.querySelectorAll(".section").forEach(x=>{
+    x.style.display=x.dataset.category===category?"block":"none";
+  });
 
-  const ex=
-    cart.find(
-      x=>x.name===current.name
-    );
-
-
-  if(ex){
-
-    ex.qty+=current.qty;
-
-  }else{
-
-    cart.push({
-
-      name:current.name,
-
-      category:current.category,
-
-      image:current.image,
-
-      qty:current.qty
-
-    });
-
-  }
-
-
-  updateCount();
-
-  fly();
-
-  closeOverlay();
-
-}
-
-
-function fly(){
-
-  const d=
-    document.createElement("div");
-
-  d.className="fly";
-
-  d.style.left="50%";
-
-  d.style.top="65%";
-
-  document
-    .body
-    .appendChild(d);
-
-
-  setTimeout(
-    ()=>d.remove(),
-    600
+  const target=document.querySelector(
+    `.section[data-category="${CSS.escape(category)}"]`
   );
 
+  if(target){
+    target.scrollIntoView({behavior:"smooth",block:"start"});
+  }
 }
 
+function openProduct(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
 
-function updateCount(){
+  current=p;
 
-  const n=
-    cart.reduce(
-      (s,x)=>s+x.qty,
-      0
-    );
+  const img=p.image
+    ? `<img class="detailImg" src="${esc(p.image)}" alt="${esc(p.ref)}">`
+    : `<div class="photo detailImg"><div class="pending">Foto pendiente</div></div>`;
 
+  document.getElementById("detail").innerHTML=`
+    ${img}
+    <div class="detailRef">${esc(p.ref)}</div>
+    ${
+      p.available
+      ? `<div class="available"><span class="dot"></span>Disponible</div>`
+      : `<div class="available" style="color:#a34b4b"><span class="dot" style="background:#b94c4c"></span>Agotado</div>`
+    }
+    ${
+      p.available
+      ? `
+        <div class="qty">
+          <button onclick="changeDetailQty(-1)">−</button>
+          <strong id="detailQty">1</strong>
+          <button onclick="changeDetailQty(1)">+</button>
+        </div>
+        <button class="primary" onclick="addCurrentFromDetail()">AÑADIR AL CARRITO</button>
+      `
+      : `
+        <button class="primary" disabled style="background:#d5dbd7;color:#6b746e">
+          AGOTADO
+        </button>
+      `
+    }
+  `;
 
-  document
-    .getElementById("topCount")
-    .textContent=n;
-
-
-  document
-    .getElementById("floatCount")
-    .textContent=n;
-
+  document.getElementById("detailOverlay").classList.add("open");
 }
 
+function changeDetailQty(delta){
+  const el=document.getElementById("detailQty");
+  if(!el)return;
 
-function openCart(){
+  let qty=parseInt(el.textContent||"1",10)+delta;
+  if(qty<1)qty=1;
+  if(qty>99)qty=99;
 
+  el.textContent=qty;
+}
+
+function addCurrentFromDetail(){
+  if(!current)return;
+
+  const qty=parseInt(
+    document.getElementById("detailQty")?.textContent||"1",
+    10
+  );
+
+  addToCart(current.id,qty);
+  closeDetail();
+}
+
+function addToCart(id,qty=1){
+  const p=products.find(x=>x.id===id);
+  if(!p || !p.available)return;
+
+  const existing=cart.find(x=>x.id===id);
+
+  if(existing){
+    existing.qty+=qty;
+  }else{
+    cart.push({id,qty});
+  }
+
+  updateCartCount();
+  showAdded();
+}
+
+function removeFromCart(id){
+  cart=cart.filter(x=>x.id!==id);
+  updateCartCount();
   renderCart();
-
-  document
-    .getElementById("sheet")
-    .classList.add("cartMode");
-
-  document
-    .getElementById("overlay")
-    .classList.add("show");
-
 }
 
+function updateCartCount(){
+  const count=cart.reduce((sum,x)=>sum+x.qty,0);
+  document.getElementById("cartCount").textContent=count;
+  document.getElementById("floatingCount").textContent=count;
+}
 
 function renderCart(){
-
-  const total=
-    cart.reduce(
-      (s,x)=>s+x.qty,
-      0
-    );
-
-
-  document
-    .getElementById("cartView")
-    .innerHTML=`
-
-      <div class="cartHead">
-
-        <h3>
-          CARRITO (${total})
-        </h3>
-
-
-        <button
-          class="icon"
-          style="color:#111"
-          onclick="closeOverlay()"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      ${
-        cart.length
-
-        ?
-
-        cart.map(
-          (x,i)=>`
-
-            <div class="cartLine">
-
-              ${
-                x.image
-
-                ?
-
-                `
-                  <img
-                    src="${safe(x.image)}"
-                    alt=""
-                  >
-                `
-
-                :
-
-                `
-                  <div
-                    class="photo"
-                    style="
-                      width:58px;
-                      height:58px
-                    "
-                  >
-                    <div class="noPhoto">
-                      —
-                    </div>
-                  </div>
-                `
-              }
-
-
-              <div>
-
-                <div class="lineName">
-                  ${safe(x.name)}
-                </div>
-
-
-                <div class="lineCat">
-                  ${safe(x.category)}
-                </div>
-
-              </div>
-
-
-              <div class="miniQty">
-
-                <button
-                  onclick="qty(${i},-1)"
-                >
-                  −
-                </button>
-
-
-                <span>
-                  ${x.qty}
-                </span>
-
-
-                <button
-                  onclick="qty(${i},1)"
-                >
-                  +
-                </button>
-
-              </div>
-
-            </div>
-
-          `
-        ).join("")
-
-        :
-
-        `
-          <div
-            class="empty"
-            style="margin-top:20px"
-          >
-            Tu pedido está vacío.
-          </div>
-        `
-      }
-
-
-      <button
-        class="wa"
-        onclick="orderWhatsApp()"
-        ${cart.length?"":"disabled"}
-      >
-        PEDIR POR WHATSAPP →
-      </button>
-
-
-      <div class="note">
-        WhatsApp abrirá el pedido preparado
-        para que lo revises y lo envíes.
-      </div>
-
-    `;
-
-}
-
-
-function qty(i,n){
-
-  cart[i].qty+=n;
-
-
-  if(
-    cart[i].qty<=0
-  ){
-
-    cart.splice(i,1);
-
-  }
-
-
-  updateCount();
-
-  renderCart();
-
-}
-
-
-function orderWhatsApp(){
+  const box=document.getElementById("cart");
 
   if(!cart.length){
+    box.innerHTML=`<div class="empty">Tu carrito está vacío.</div>`;
     return;
   }
 
+  box.innerHTML=`
+    ${cart.map(item=>{
+      const p=products.find(x=>x.id===item.id);
+      if(!p)return "";
 
-  const msg=
+      return `
+        <div class="cartItem">
+          ${
+            p.image
+            ? `<img src="${esc(p.image)}" alt="">`
+            : `<div style="width:55px;height:55px;border-radius:10px;background:#edf1ee"></div>`
+          }
+          <div class="cartInfo">
+            <strong>${esc(p.ref)}</strong>
+            <small>Cantidad: ${item.qty}</small>
+          </div>
+          <button class="remove" onclick="removeFromCart('${p.id}')">✕</button>
+        </div>
+      `;
+    }).join("")}
 
-    "Hola, quiero hacer un pedido:\n\n"+
+    <button class="primary" style="margin-top:18px" onclick="sendWhatsApp()">
+      PEDIR AHORA POR WHATSAPP
+    </button>
+  `;
+}
 
-    cart
-      .map(
-        x=>
-          "• "+
-          x.name+
-          " ("+
-          x.category+
-          ") × "+
-          x.qty
-      )
-      .join("\n")+
+function sendWhatsApp(){
+  if(!cart.length)return;
 
-    "\n\nGracias 🙏";
+  const lines=[
+    "Hola, quiero hacer este pedido en La Familia CBD:",
+    ""
+  ];
 
+  cart.forEach(item=>{
+    const p=products.find(x=>x.id===item.id);
+    if(!p)return;
 
-  window.location.href=
+    lines.push(`• ${p.ref} × ${item.qty}`);
+    lines.push(`  ${productUrl(p)}`);
+  });
 
+  lines.push("");
+  lines.push("¡Gracias!");
+
+  const url=
     "https://wa.me/"+
     WHATSAPP+
     "?text="+
-    encodeURIComponent(msg);
+    encodeURIComponent(lines.join("\n"));
 
+  window.open(url,"_blank");
 }
 
-
-function closeOverlay(){
-
-  document
-    .getElementById("overlay")
-    .classList.remove("show");
-
-  document
-    .getElementById("sheet")
-    .classList.remove("cartMode");
-
+function openCart(){
+  renderCart();
+  document.getElementById("cartOverlay").classList.add("open");
 }
 
+function closeCart(){
+  document.getElementById("cartOverlay").classList.remove("open");
+}
 
-function backdrop(e){
+function closeDetail(){
+  document.getElementById("detailOverlay").classList.remove("open");
+  current=null;
+}
 
-  if(
-    e.target.id==="overlay"
-  ){
-
-    closeOverlay();
-
+function backgroundClose(e,id){
+  if(e.target.id===id){
+    document.getElementById(id).classList.remove("open");
   }
-
 }
 
+function showAdded(){
+  const old=document.querySelector(".addedToast");
+  if(old)old.remove();
 
+  const toast=document.createElement("div");
+  toast.className="addedToast";
+  toast.textContent="✓ Añadido al carrito";
+
+  Object.assign(toast.style,{
+    position:"fixed",
+    left:"50%",
+    bottom:"82px",
+    transform:"translateX(-50%)",
+    zIndex:"200",
+    background:"#050806",
+    color:"#fff",
+    padding:"12px 18px",
+    borderRadius:"999px",
+    fontWeight:"900",
+    fontSize:"12px",
+    boxShadow:"0 10px 30px rgba(0,0,0,.25)"
+  });
+
+  document.body.appendChild(toast);
+
+  setTimeout(()=>{
+    toast.remove();
+  },1400);
+}
+
+document.getElementById("search").addEventListener("input",()=>{
+  render();
+});
+
+function openHashProduct(){
+  const id=location.hash.slice(1);
+  if(!id)return;
+
+  const p=products.find(x=>x.id===id);
+  if(p){
+    setTimeout(()=>openProduct(id),100);
+  }
+}
+
+buildProducts();
+renderCategories();
 render();
+updateCartCount();
+openHashProduct();
 
-updateCount();
-
+window.addEventListener("hashchange",openHashProduct);
 </script>
 
 </body>
